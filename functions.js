@@ -2,6 +2,7 @@ var contGiradas=0;
 var idPrimeraCarta="";
 var primeraCarta="";
 var cartaActual="";
+var contIntentos=0;
 
 girarCarta(idcarta, anverso, contGiradas) {
 	if (contGiradas==0) {
@@ -32,4 +33,6 @@ comprarCartas(primeraCarta){
 		//contadorGanador = document.getElementById("contador"); //posiblemente le falte un metodo para el contenido del p
 		//document.getElementById("contador").innerText = contadorGanador+1; //dudosa eficacia
 	}
+	contIntentos++;
+	document.getElementById("ContadorDeIntentos").innerHTML = "Intentos: " + contIntentos;
 }
