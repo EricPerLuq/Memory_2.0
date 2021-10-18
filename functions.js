@@ -1,50 +1,62 @@
-<<<<<<< HEAD
 var contGiradas=0;
 var idPrimeraCarta="";
 var primeraCarta="";
 var cartaActual="";
+var srcTemp="";
 
-girarCarta(idcarta, anverso, contGiradas) {
+function girarCarta(idcarta, anverso) {
 	if (contGiradas==0) {
 		idPrimeraCarta=idcarta;
-	} else {
-		primeraCarta=document.getElementById(idPrimeraCarta).src
+		console.log(idPrimeraCarta);
 	}
-
-	cartaActual=document.getElementById(idcarta).src;
-	console.log(cartaActual);
-	console.log(cartaActual[-11,-1]==="reverso.png");
-	if (!cartaActual[-11,-1]==="reverso.png" && contGiradas<2) {
-		cartaActual = "./imgs/" + anverso + ".png";
+	cartaActual=document.getElementById(idcarta);
+	srcTemp=cartaActual.src.split("/");
+	srcTemp=srcTemp[srcTemp.length-1];
+	srcTemp=srcTemp.split(".");
+	srcTemp=srcTemp[0];
+	console.log("contGiradas: " + contGiradas);
+	if (srcTemp==="reverso" && contGiradas<2) {
+		cartaActual.src = "./imgs/Cartas/carta" + anverso + ".png";
 		contGiradas+=1;
 		if (contGiradas==1) {
 			primeraCarta=cartaActual;
+			console.log("primera " + primeraCarta.src);
+			console.log("actual " + cartaActual.src);
 		} else {
-			comprarCartas(primeraCarta);
+			console.log("else");
+			console.log("primera " + primeraCarta.src);
+			console.log("actual " + cartaActual.src);
+			compararCartas(primeraCarta, cartaActual);
 		}
+	} else {
+		console.log(contGiradas + srcTemp);
+		console.log("Ya hay dos giradas");
 	}
 }
 
-comprarCartas(primeraCarta){
-	if (primeraCarta!=cartaActual) {
-		primeraCarta="./imgs/revers.png";
-		cartaActual="./imgs/revers.png";
+function compararCartas(primeraCartaComparar, segundaCartaComparar){
+	console.log(primeraCartaComparar.src);
+	console.log(segundaCartaComparar.src);
+	segundaCarta=cartaActual;
+	if (primeraCartaComparar.src!=segundaCartaComparar.src) {
+		setTimeout(esperando, 2000);
+		console.log("No son iguales");
 	} else {
+		console.log("Son iguales!");
+		contGiradas=0;
 		//contadorGanador = document.getElementById("contador"); //posiblemente le falte un metodo para el contenido del p
 		//document.getElementById("contador").innerText = contadorGanador+1; //dudosa eficacia
 	}
-=======
-girarCarta(idcarta, anverso) {
-	carta=document.getElementById(idcarta).src;
-	console.log(carta[-11,-1]==="reverso.png");
-	if (!carta[-11,-1]==="reverso.png") {
-		carta = "./imgs/" + anverso + ".png";
-	} 
 }
 
 //Con esta funcion inicamos el juego
-Jugar(){
-	window.location.href = "PaginaJuego.html";
+function Jugar(){
+	window.location.href = "Juego.php";
+}
 
->>>>>>> DevEric
+function esperando(){
+	console.log("esperando me hallo");
+	primeraCarta.src="imgs/reverso.png";
+	segundaCarta.src="imgs/reverso.png";
+	contGiradas=0;
 }
