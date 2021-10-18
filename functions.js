@@ -4,8 +4,9 @@ var primeraCarta="";
 var cartaActual="";
 var contIntentos=0;
 var srcTemp="";
+var contErrores=0;
 
-
+//Gira la carta que se pulsa
 function girarCarta(idcarta, anverso) {
 	if (contGiradas==0) {
 		idPrimeraCarta=idcarta;
@@ -24,12 +25,15 @@ function girarCarta(idcarta, anverso) {
 			compararCartas(primeraCarta, cartaActual);
 		}
 	} else {
-		console.log("Ya hay dos giradas");
+		console.log("Ya hay dos cartas giradas o la carta ya está girada");
 	}
 }
 
+//Compara que las cartas sean iguales
 function compararCartas(primeraCartaComparar, segundaCartaComparar){
 	segundaCarta=cartaActual;
+	contIntentos++;
+	document.getElementById("contadorDeIntentos").innerHTML = "Intentos: " + contIntentos;
 	if (primeraCartaComparar.src!=segundaCartaComparar.src) {
 		setTimeout(esperando, 2000);
 		console.log("No son iguales");
@@ -37,12 +41,7 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 		console.log("Son iguales!");
 		contGiradas=0;
 		comprobarGanador();
-		//contadorGanador = document.getElementById("contador"); //posiblemente le falte un metodo para el contenido del p
-		//document.getElementById("contador").innerText = contadorGanador+1; //dudosa eficacia
 	}
-
-	contIntentos++;
-	document.getElementById("contadorDeIntentos").innerHTML = "Intentos: " + contIntentos; 
 }
 
 //Con esta funcion inicamos el juego
@@ -50,25 +49,26 @@ function Jugar(){
 	window.location.href = "Juego.php";
 }
 
+//Esperar 2 segundos para ocultar las cartas
 function esperando(){
 	primeraCarta.src="imgs/reverso.png";
 	segundaCarta.src="imgs/reverso.png";
 	contGiradas=0;
 }
 
-//repasa todas las cartas y comprueba si tienen reverso
+//Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
     var todasCartas = document.getElementsByTagName("img");
     var ganador=true;
     for (i=0; i<todasCartas.length; i++) {
     	srcTemp2=todasCartas[i].src.split("/");
 		srcTemp2=srcTemp2[srcTemp2.length-1];
-		console.log(srcTemp2);
         if (srcTemp2=="reverso.png") {
             ganador=false;
         }
     }
     if (ganador===true) {
-    	//pantalla ganador
+    	contErrores = contIntentos - (todasCartas.length/2);
+    	window.location.href = "Ganar.php?Errores=" + contErrores;
     }
 }

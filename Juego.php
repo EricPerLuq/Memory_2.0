@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pagina principal</title>
+	<title>Memory 2.0</title>
 	<script type="text/javascript" src="functions.js"></script>
 		<style type="text/css">
 		body {
@@ -57,7 +57,7 @@ while ($nivel<2) {
 		}
 		$idCarta+=1;
 		$imagenCorrecta=false;
-		echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='100' width='100' ></td> ";
+		echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='auto' width='180' ></td> ";
 	}echo"</tr>";
 	$nivel=$nivel+1;
 	}
