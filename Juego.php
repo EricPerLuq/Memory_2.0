@@ -20,6 +20,8 @@
 			width:10;
 		}
 		span{
+			margin-right: 100px;
+			margin-top:5px;
             float: right;
             border: solid;
             border-color: #f4d03f;
