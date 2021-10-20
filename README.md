@@ -7,10 +7,8 @@ Es un juego de mesa con una baraja de cartas específicas, cada una de ellas tie
 Cuando ejecutamos el juego y empezamos a jugar veremos 8 cartas del reverso, deberemos pulsar un par de cartas, no más, y la propia aplicación comparará si las cartas seleccionadas coinciden o no. En caso que no coincidan a los 2 segundos se darán la vuelta mostrando de nuevo el reverso y permitirá de nuevo pulsar otras 2 cartas nuevas o las mismas. Por otro lado si las cartas coinciden se quedarán mostrando el anverso y directamente se podrá pulsar una nueva pareja de cartas.<br>
 En la parte superior derecha habrá un contador de intentos, contará tanto las comparaciones correctas como las erróneas.<br><br>
 El juego termina en el momento en que todas las cartas están mostrando el anverso.<br>
-Una vez muestra la pantalla de éxito permite entrar el nombre del jugador para poder guardar sus datos.
+Una vez muestra la pantalla de éxito permite entrar el nombre del jugador para poder guardar sus datos.<br>
 
-
-<br>
 ## Cómo ejecutar el juego del memory:
 1- Crea la carpeta donde vas a descargar los archivos del juego. Usaremos como ejemplo la carpeta "Documents".<br>
 2- Abre la terminal "Konsole" o la que tengas instalada.<br>
