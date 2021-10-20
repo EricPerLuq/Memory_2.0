@@ -48,7 +48,7 @@
 		}
 	.Gif
 		 {	
-		 	padding-left: 40px;
+
 		 	align-items: center;
 				
 		 }
