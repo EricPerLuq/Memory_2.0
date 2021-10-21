@@ -114,7 +114,7 @@
 <?php
 if(isset($_POST["submit"])) {	
 	$file = fopen('HallOfFame.txt',"a");
-		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."$Tiempo"."\n");
+		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
 		fclose($file);
 	}
 
