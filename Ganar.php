@@ -48,7 +48,11 @@
 		}
 	.Gif
 		 {	
+<<<<<<< HEAD
 		 	padding-left: 40px;
+=======
+
+>>>>>>> origin/Integracion
 		 	align-items: center;
 				
 		 }
@@ -108,13 +112,21 @@
 		
 			<p>Pon tu nombre:</p>
 			<input type="text" name="Nombre">
+<<<<<<< HEAD
 			<button type="submit" name="submit" >Enviar</button>
+=======
+			<button type="submit" name="submit" ">Enviar</button>
+>>>>>>> origin/Integracion
 	</form>
 </div>
 <?php
 if(isset($_POST["submit"])) {	
 	$file = fopen('HallOfFame.txt',"a");
+<<<<<<< HEAD
 		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."$Tiempo"."\n");
+=======
+		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
+>>>>>>> origin/Integracion
 		fclose($file);
 	}
 
@@ -123,4 +135,8 @@ if(isset($_POST["submit"])) {
 ?>
 	
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/Integracion
