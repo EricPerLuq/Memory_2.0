@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<title>Memory 2.0</title>
 	<style type="text/css">
 		body {
@@ -26,9 +25,15 @@
 			background-image: url("./imgs/fondo-boton.jpeg");			
 		}
 		input {
+			width: 15px;
+			height: 15px;
+		}
+		.botonJugar {
 			width: 100px;
 			height: 50px;
-
+		}
+		.filaBotonJugar {
+			text-align: center;
 		}
 		img {
 			width: 180px;
@@ -48,7 +53,7 @@
 <body>
 	<table align="center">
 		<tr>
-			<td rowspan="2">
+			<td rowspan="4">
 				<h1 align="center"><span>MEMORY 2.0</span></h1>
 				<h2><span>INSTRUCCIONES</span></h2>
 				<p>· Debes girar 2 cartas por cada turno.</p>
@@ -57,7 +62,7 @@
 				<p>· La partida acaba cuando has encontrado todas las parejas.</p>
 				<p>· El tiempo y el número de intentos son ilimitados.</p>
 			</td>
-			<td rowspan="2">
+			<td rowspan="4">
 				<img class=separacion src="./imgs/whiteline.png">
 			</td>
 			<td>
@@ -66,9 +71,30 @@
 		</tr>
 		<tr>
 			<td>
-				<form action="Juego.php">
-			        <input type="submit" value="JUGAR"  onclick="Jugar()"/>
+				<form action="Juego.php" method="GET">
+					<input type="checkbox" id="advanced "name="advanced" value="Advanced">Advanced
+
+			</td>
+		</tr>
+		<tr>
+			<td>	
+					<input type="radio" id="nivel1" name="level" value="1" checked>
+					<label for="nivel1">Nivel 1</label>
+					<input type="radio" id="nivel2" name="level" value="2">
+					<label for="nivel2">Nivel 2</label>
+					<input type="radio" id="nivel3" name="level" value="3">
+					<label for="nivel3">Nivel 3</label>
+					<input type="radio" id="nivel4" name="level" value="4">
+					<label for="nivel4">Nivel 4</label>
+					<input type="radio" id="nivel5" name="level" value="5">
+					<label for="nivel5">Nivel 5</label>			
+			</td>
+		</tr>
+		<tr>
+			<td class="filaBotonJugar">
+					<input class="botonJugar" type="submit" value="JUGAR">
 				</form>
+
 			</td>
 		</tr>
 	</table>
