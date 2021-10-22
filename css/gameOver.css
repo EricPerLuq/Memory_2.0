@@ -1,7 +1,21 @@
+h1{
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 120px;
+	line-height: .75;
+	margin: 10px 0;
+}
+
+.casilla{
+    width: 200px;
+    height: 80px;
+    font-weight: bold;
+}
+
 .title {
     font-family: "arial";
     text-align: center;
-    color: #FFF;
+    color: #blacl;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,23 +40,4 @@
     padding: 10px;
     border-radius: 10px;
     width: max-content;
-}
-
-.contadorDeIntentos {
-    font-weight: bold;
-    font-size: x-large;
-    font-family: "arial";
-    padding-left: 140px;
-}
-
-.botones {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
-
-.casilla{
-    width: 200px;
-    height: 80px;
-    font-weight: bold;
 }

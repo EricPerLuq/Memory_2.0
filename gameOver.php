@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Página ganador</title>
-	<script type="text/javascript" src="https://dl.dropboxusercontent.com/s/qhmfmwu7ckig9l2/fartificiales.js"></script>
+	<title>Game Over</title>
 	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/ganar.css">
+	<link rel="stylesheet" href="css/gameOver.css">
 </head>
 <body>
 
@@ -18,7 +17,7 @@
 		}
 
 		h1 {
-			background-image: url(imgs/fuegos_artificiales.gif);
+			background-image: url(imgs/fire.gif);
     		background-size: cover;
     		color: transparent;
 			-moz-background-clip: text;
@@ -26,25 +25,23 @@
 			text-transform: uppercase;
 			text-align: center;
 			font-size: 120px;
-			line-height: .75;
+			line-height: .90;
 			margin: 10px 0;
 		}	 
 	</style>
 
 	<div class="title">
-		<h1>¡Enhorabuena <br/>Has Ganado!</h1>
+		<h1>Has Perdido...</h1>
 	</div>
 
 	<div class="Div-flex">
 		<div class="Div-marco">
-
 			<div class="Gif">
-				<img  src="imgs/Juego_Calamar2.gif">	
+				<img  src="imgs/Juego_Calamar_gameOver.gif">	
 			</div>
-
-
 		</div>
 	</div>
+
 
 	<div class="botones">
 		<form action="index.php">
@@ -55,13 +52,5 @@
 		</form>
 	</div>
 
-	<?php
-		if(isset($_POST["submit"])) {	
-			$file = fopen('HallOfFame.txt',"a");
-				fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
-				fclose($file);
-		}
-	?>
-	
 </body>
 </html>

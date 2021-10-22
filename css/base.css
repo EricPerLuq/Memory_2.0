@@ -16,5 +16,14 @@ body {
     text-align-last: center;
     font-size: x-large;
     padding: 1px 6px;
+    border-radius: 10px;
+
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
 }
 
