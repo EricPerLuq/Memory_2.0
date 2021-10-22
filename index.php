@@ -69,6 +69,7 @@
 				<form action="Juego.php">
 			        <input type="submit" value="JUGAR"  onclick="Jugar()"/>
 				</form>
+				<a href="Ranking.php">RANKING</a>
 			</td>
 		</tr>
 	</table>

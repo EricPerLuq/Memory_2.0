@@ -48,11 +48,9 @@
 		}
 	.Gif
 		 {	
-<<<<<<< HEAD
-		 	padding-left: 40px;
-=======
 
->>>>>>> origin/Integracion
+		 	padding-left: 40px;
+
 		 	align-items: center;
 				
 		 }
@@ -112,31 +110,51 @@
 		
 			<p>Pon tu nombre:</p>
 			<input type="text" name="Nombre">
-<<<<<<< HEAD
 			<button type="submit" name="submit" >Enviar</button>
-=======
-			<button type="submit" name="submit" ">Enviar</button>
->>>>>>> origin/Integracion
+
 	</form>
 </div>
 <?php
+$Level=1;
+$Tiempo=40;
+if ($Level==1) {
+	$Level=1;
+	$formula=(($Intentos%$Tiempo)*$Level)*10;
+}elseif ($Level==2) {
+	$Level=2;
+	$formula=(($Intentos%$Tiempo)*$Level)*10;
+}elseif ($Level==3) {
+	$Level=4;
+	$formula=(($Intentos%$Tiempo)*$Level)*10;
+}
+elseif ($Level==4) {
+	$Level=6;
+	$formula=(($Intentos%$Tiempo)*$Level)*10;
+}
+elseif ($Level==5) {
+	$Level=7.5;
+$formula=(($Intentos%$Tiempo)*$Level)*10;
+}elseif ($Level==6) {
+	$Level=9;
+$formula=(($Intentos%$Tiempo)*$Level)*10;}
+
 if(isset($_POST["submit"])) {	
 	$file = fopen('HallOfFame.txt',"a");
-<<<<<<< HEAD
-		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."$Tiempo"."\n");
-=======
-		fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
->>>>>>> origin/Integracion
+
+		if ($formula>10) {
+			$formula=10;
+		}
+		//fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
+		fwrite($file, $_POST["Nombre"]."[".$formula."]"."\n");
+
 		fclose($file);
 	}
 
-	
+
+
 	
 ?>
 	
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> origin/Integracion

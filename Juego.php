@@ -41,6 +41,7 @@ $imagenCorrecta=false;
 $contadoresCartas=[];
 $contadorCartas=-1;
 $idCarta=0;
+
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 	$contadorCartas+=1;
@@ -63,6 +64,7 @@ while ($nivel<2) {
 	}echo"</tr>";
 	$nivel=$nivel+1;
 	}
+
 
 ?>
 	</table>
