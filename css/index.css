@@ -1,11 +1,11 @@
 body {
     /* width: 100%; */
     /* height: length; */
-    display: flex;
+    /*display: flex;*/
     padding-top: 100px;
 }
 
-h2, form {
+h1, form {
     text-align: center;
     color: #fdfefe;
 }
@@ -15,12 +15,12 @@ p {
     color: #fdfefe;
 }
 
-input {
-    width: 100px;
-    height: 50px;
-}
 
 img {
+    width: 65%;
+}
+
+.imagen{
     width: 180px;
     height: 270px;
     display: block;
