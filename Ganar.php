@@ -58,15 +58,6 @@
 
 		</div>
 	</div>
-	<?php
-	if(isset($_POST["submit"])) {	
-		$file = fopen('HallOfFame.txt',"a");
-			fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
-			fclose($file);
-		}
-	?>
-	
-
 
 	<div class="botones">
 		<form action="index.html">
