@@ -44,10 +44,10 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 	}
 }
 
-//Con esta funcion inicamos el juego
-function Jugar(){
-	window.location.href = "Juego.php";
-}
+/*Con esta funcion inicamos el juego
+function Jugar(nivel){
+	window.location.href = "Juego.php?nivel=" + nivel;
+}*/
 
 //Esperar 2 segundos para ocultar las cartas
 function esperando(){
@@ -71,4 +71,13 @@ function comprobarGanador() {
     	contErrores = contIntentos - (todasCartas.length/2);
     	window.location.href = "Ganar.php?Errores=" + contErrores;
     }
+}
+
+function cartaViuda(cartaNueva, totalCuadros) {
+	cartaACambiar=Math.floor(Math.random() * totalCuadros);
+	console.log("Carta a Cambiar: " + cartaACambiar);
+	console.log("Cambiar por la carta: " + cartaNueva);
+	console.log("Antes: " + document.getElementById(cartaACambiar).onclick);
+	document.getElementById(cartaACambiar).setAttribute('onclick', "girarCarta(" + cartaACambiar + ", "+ cartaNueva + ")");
+	console.log("Después: " + document.getElementById(cartaACambiar).onclick);
 }
