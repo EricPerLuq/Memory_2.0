@@ -1,0 +1,18 @@
+table{
+    margin:auto;
+}
+img{
+    width:180px;
+    height:auto;
+    
+}
+span{
+    margin-right: 100px;
+    margin-top:5px;
+    float: right; 
+} 
+.botones{
+    margin-right: 100px;
+    margin-top: 5px;
+    float: right;
+}

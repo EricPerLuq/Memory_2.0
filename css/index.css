@@ -1,0 +1,36 @@
+body {
+    /* width: 100%; */
+    /* height: length; */
+    display: flex;
+    padding-top: 100px;
+}
+
+h2, form {
+    text-align: center;
+    color: #fdfefe;
+}
+
+p {
+    text-align: left;
+    color: #fdfefe;
+}
+
+input {
+    width: 100px;
+    height: 50px;
+}
+
+img {
+    width: 180px;
+    height: 270px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.separacion{
+    width: 5px;
+    height: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
