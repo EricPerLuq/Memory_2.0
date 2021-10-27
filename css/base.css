@@ -1,0 +1,20 @@
+body {
+    font-family: "arial";
+    align-content: center;
+    background-image: url("../imgs/fondo-bienvenida.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.casilla {
+    border: solid;
+    border-color: #f4d03f;
+    color: #fdfefe;
+    background-image: url("../imgs/fondo-boton.jpeg");
+    text-align-last: center;
+    font-size: x-large;
+    padding: 1px 6px;
+}
+

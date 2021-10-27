@@ -1,0 +1,29 @@
+table{
+    margin:auto;
+}
+img{
+    width:180px;
+    height:auto;
+    
+}
+span{
+    margin-right: 100px;
+    margin-top:5px;
+    float: right; 
+} 
+.botones{
+    margin-right: 100px;
+    margin-top: 5px;
+    float: right;
+}
+
+.Crono{
+    position: relative;
+    left: 270px;
+    top: 40px;
+    border: solid;
+    border-color: #f4d03f;
+    color: #fdfefe;
+    background-image: url("../imgs/fondo-boton.jpeg");
+    padding: 5px 40px;
+}
