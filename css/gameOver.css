@@ -1,21 +1,7 @@
-h1{
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 120px;
-	line-height: .75;
-	margin: 10px 0;
-}
-
-.casilla{
-    width: 200px;
-    height: 80px;
-    font-weight: bold;
-}
-
 .title {
     font-family: "arial";
     text-align: center;
-    color: #blacl;
+    color: #FFF;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,4 +26,16 @@ h1{
     padding: 10px;
     border-radius: 10px;
     width: max-content;
+}
+h1{
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 120px;
+	line-height: .75;
+	margin: 10px 0;
+}
+
+.casilla{
+    width: 200px;
+    font-weight: bold;
 }

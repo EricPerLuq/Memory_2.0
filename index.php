@@ -12,14 +12,13 @@
     </div>
     <table align="center">
         <tr>
-            <td rowspan="4">
+            <td class="instrucciones" rowspan="4">
                 <h1><span class="casilla">INSTRUCCIONES</span></h1>
                 <p>· Debes girar 2 cartas por cada turno.</p>
                 <p>· Si las cartas son las mismas, sumas un punto y se quedan desbloqueadas.</p>
                 <p>· Si las cartas no coinciden, tienes 2 segundos para memorizarlas antes de que se vuelvan a ocultar.</p>
                 <p>· La partida acaba cuando has encontrado todas las parejas.</p>
                 <p>· El tiempo y el número de intentos son ilimitados.</p>
-                <br>
                 <a class="casilla" href="Ranking.php">RANKING</a> 
             </td>
             <td rowspan="4">
@@ -31,16 +30,13 @@
             </td>
         </tr>
         <tr>
-
 			<td>
-				<br>
 				<form action="Juego.php" method="GET">
 					<input type="checkbox" id="advanced "name="advanced" value="Advanced">Advanced
 			</td>
 		</tr>
 		<tr>
 			<td class="filaBotonJugar">	
-				<br>
 				<input type="radio" id="nivel1" name="level" value="1" checked>
 				<label for="nivel1">Nivel 1</label>
 				<input type="radio" id="nivel2" name="level" value="2">
@@ -55,7 +51,6 @@
 		</tr>
 		<tr>
 			<td class="filaBotonJugar">
-					<br>
 					<input type="text" name="nombreUsuario" placeholder="Nombre" required/>
                     <input class="casilla" type="submit" value="JUGAR"  onclick="Jugar()"/>
 				</form>

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/ranking.css">
 </head>
 <body>
+
 	<style type="text/css">
 			h1 {
 			background-image: url(imgs/ranking.gif);
@@ -20,11 +21,14 @@
 			margin: 10px 0;
 		}
 	</style>
+	
 	<img class="Mascara" src="imgs/Mascara.png">
+
 	<div class="title">
 		<h1>RANKING</h1>
 	</div>
 	<img class="Mascara2" src="imgs/Circle-Mask.png">
+	
 	<table>
 		<tr>
 			<th>Nombre</th><th>Puntuación</th>
@@ -57,7 +61,11 @@
 				   
 		?>
 	</table>
-	<img class="Img" src="imgs/it's_all.png">
+
+	<img class="Img" src="imgs/It's_all.png">
+	<div class="Img">
+		<a class="casilla" href="index.php">INICIO</a>
+	</div>
 
 </body>
 </html>

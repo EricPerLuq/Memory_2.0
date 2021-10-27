@@ -2,7 +2,6 @@ body{
     display: grid;
 }
 
-
 table{
     margin:auto;
 }
@@ -13,10 +12,16 @@ img{
 }
 span{
     margin-right: 100px;
-    margin-top:5px;
     float: right; 
 } 
 .botones{
     margin-right: 10px;
     float: right;
+}
+a{
+    width: max-content;
+    display: flex;
+    justify-self: right;
+    margin-right: 100px;
+    float: right; 
 }

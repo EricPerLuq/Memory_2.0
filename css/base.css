@@ -17,6 +17,7 @@ body {
     font-size: x-large;
     padding: 1px 6px;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .botones {
@@ -24,4 +25,10 @@ body {
     justify-content: center;
     gap: 50px;
 }
+
+a{
+    text-decoration-line: none;
+    text-transform: uppercase;
+}
+
 

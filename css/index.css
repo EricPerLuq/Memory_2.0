@@ -1,16 +1,20 @@
 body {
-    /* width: 100%; */
-    /* height: length; */
-    /*display: flex;*/
+    width: 100%;
+    height: length;
     padding-top: 40px;
 }
-a{
-    text-decoration-line: none;
-}
 
-h1, form {
+form {
     text-align: center;
     color: #fdfefe;
+}
+
+img {
+    width: 65%;
+}
+
+.instrucciones{
+    text-align: -webkit-center;
 }
 
 p {
@@ -18,12 +22,7 @@ p {
     color: #fdfefe;
 }
 
-
-img {
-    width: 65%;
-}
-
-.imagen{
+.imagen {
     width: 180px;
     height: 270px;
     display: block;
@@ -31,9 +30,15 @@ img {
     margin-right: auto;
 }
 
-.separacion{
+.separacion {
     width: 5px;
     height: 300px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.filaBotonJugar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

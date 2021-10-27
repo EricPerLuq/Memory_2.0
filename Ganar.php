@@ -47,12 +47,8 @@
 	</div>
 
 	<div class="botones">
-		<form action="index.php">
-			<input class="casilla" type="submit" value="Inicio"/>
-		</form>
-		<form action="Ranking.php">
-			<input class="casilla" type="submit" value="Ranking"/>
-		</form>
+		<a class="casilla" href="index.php">INICIO</a>
+		<a class="casilla" href="Ranking.php">RANKING</a>
 	</div>
 
 	<?php
