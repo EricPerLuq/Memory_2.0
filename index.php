@@ -72,7 +72,7 @@
 		<tr>
 			<td>
 				<form action="Juego.php" method="GET">
-					<input type="checkbox" id="advanced "name="advanced" value="Advanced">Advanced
+					<input type="checkbox" id="advanced " name="advanced" value="Advanced">Advanced
 
 			</td>
 		</tr>
@@ -94,7 +94,7 @@
 			<td class="filaBotonJugar">
 					<input class="botonJugar" type="submit" value="JUGAR">
 				</form>
-
+				<a href="Ranking.php">RANKING</a>
 			</td>
 		</tr>
 	</table>

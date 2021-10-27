@@ -30,9 +30,10 @@
 	    }
 	</style>
 </head>
-<body>
+<body onload="Cronometro()">
 
 	<h2><span id="contadorDeIntentos">Intentos: 0 </span></h2> 
+	<h2><span class="Crono" id="Cronometro">Tiempo: 30 </span></h2>
 	<table border="black" width=400 heigth=400>
 
 <?php

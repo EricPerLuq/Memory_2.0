@@ -123,3 +123,17 @@ document.oncontextmenu = function(e) {
 	girarCartaViuda(onclickIdCarta);
 	return false;
 };
+//Con esta funcion iniciamos el cronometro
+function Cronometro(){
+	console.log("Ha entrado");
+	var control=30;
+	var SpanNumero=document.getElementById("Cronometro");
+	window.setInterval(function(){
+		if (control==0) {
+		window.location.href="gameOver.php";
+
+		}
+		SpanNumero.innerHTML = "Tiempo: "+control;
+		control-=1;},1000);
+
+}
