@@ -48,7 +48,6 @@ $posicionesCartasViudas=[];
 $contadorCartas=-1;
 $idCarta=0;
 
-
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 	$contadorCartas+=1;
@@ -112,13 +111,12 @@ if ($advanced==true) {
 	}
 }
 
-
 for ($i=0; $i < $rows; $i++) { 
 	echo"<tr>\n";
 	for ($j=0; $j < $columns ; $j++) { 
 		$idCarta+=1;
 		if ($advanced==1 && in_array($idCarta, $posicionesCartasViudas)) {
-			$cartaViuda=rand($totalCartas,26);
+			$cartaViuda=rand($totalCartas,20);
 			echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $cartaViuda)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
 		} else {
 			while ($cartaCorrecta==false) { 
@@ -134,6 +132,10 @@ for ($i=0; $i < $rows; $i++) {
 	}
 	echo"</tr>";
 }
+echo "<script>
+		window.onload=pasarRows($rows);
+	</script>";
+
 /*if ($advanced==true) {
 	for ($i=$totalCartas; $i < 45; $i++) { 
 		array_push($contadoresCartasViudas, 0);
