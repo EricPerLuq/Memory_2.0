@@ -6,14 +6,19 @@
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/juego.css">
 </head>
-<body>
-	<div class="botones">
+<body onload="Cronometro()">
+		
+	<div>
+		<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
+		<h2><span class="casilla" id="Cronometro">Tiempo: 30 </span></h2>
 		<form action="index.php">
 			<input class="casilla" type="submit" value="Terminar partida"/>
 		</form>
+
 	</div>
-	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
-	<table border="black" width=600 heigth=600>
+
+	<table border="black" width=400 heigth=400>
+
 
 <?php
 $nivel=$_GET["level"];
@@ -24,6 +29,7 @@ $totalCartas=0;
 $cartaCorrecta=false;
 $contadoresCartas=[];
 $contadoresCartasViudas=[];
+$posicionesCartasViudas=[];
 $contadorCartas=-1;
 $idCarta=0;
 
@@ -70,47 +76,75 @@ if (is_null($advanced)) {
 	$columns+=1;
 }
 
+
+$totalCuadros=$rows*$columns;
+
+
 $totalCartas=round($rows*$columns/2);
+
 for ($i=0; $i < $totalCartas; $i++) { 
  	array_push($contadoresCartas, 0);
 	$contadorCartas+=1;
  } 
+
+if ($advanced==true) {
+	for ($i=0; $i < $rows; $i++) { 
+		while ($cartaCorrecta==false) {
+			$idCartaViuda=rand(1,$totalCuadros);
+			if (!in_array($idCartaViuda, $$posicionesCartasViudas)) {
+				array_push($posicionesCartasViudas, $idCartaViuda);
+				$cartaCorrecta=true;
+			}
+		}
+		$cartaCorrecta=false;
+	}
+}
+
+
 for ($i=0; $i < $rows; $i++) { 
 	echo"<tr>\n";
 	for ($j=0; $j < $columns ; $j++) { 
-		while ($cartaCorrecta==false) { 
-			$rand=rand(0,$totalCartas-1);
-			if ($contadoresCartas[$rand]==0 or $contadoresCartas[$rand]==1) {
-			   	$contadoresCartas[$rand]+=1;
-			   	$cartaCorrecta=true;
-			}
-		}
 		$idCarta+=1;
-		$cartaCorrecta=false;
-		echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
-
+		if ($advanced==1 && in_array($idCarta, $posicionesCartasViudas)) {
+			$cartaViuda=rand($totalCartas,26);
+			echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $cartaViuda)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
+		} else {
+			while ($cartaCorrecta==false) { 
+				$rand=rand(0,$totalCartas-(1));
+				if ($contadoresCartas[$rand]==0 or $contadoresCartas[$rand]==1) {
+				   	$contadoresCartas[$rand]+=1;
+				   	$cartaCorrecta=true;
+				}
+			}
+			$cartaCorrecta=false;
+			echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
+		}
 	}
 	echo"</tr>";
 }
-
-for ($i=$totalCartas; $i < 45; $i++) { 
-	array_push($contadoresCartasViudas, 0);
-}
-for ($i=0; $i < $rows/2; $i++) { 
-	while ($cartaCorrecta==false) { 
-		$cartaNueva=rand($totalCartas,46);
-		if ($contadoresCartasViudas[$rand]==0) {
-			$totalCuadros=$rows*$columns;
-			echo "<script>";
-			echo "cartaViuda($cartaNueva,$totalCuadros);";
-			echo "</script>";
-			$cartaCorrecta=true;
-		}
+/*if ($advanced==true) {
+	for ($i=$totalCartas; $i < 45; $i++) { 
+		array_push($contadoresCartasViudas, 0);
 	}
-	$cartaCorrecta=false;
-}
+	for ($i=0; $i < $rows/2; $i++) { 
+		while ($cartaCorrecta==false) { 
+			$cartaNueva=rand($totalCartas/2,26);
+			if ($contadoresCartasViudas[$rand]==0) {
+				echo "<script>";
+				echo "cartaViuda($cartaNueva,$totalCuadros);";
+				echo "</script>";
+				$cartaCorrecta=true;
+			}
+		}
+		$cartaCorrecta=false;
+	}
+}*/
 ?>
+
 	</table>
+
+	
+	
 
 </body>
 </html>

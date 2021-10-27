@@ -19,6 +19,8 @@
                 <p>· Si las cartas no coinciden, tienes 2 segundos para memorizarlas antes de que se vuelvan a ocultar.</p>
                 <p>· La partida acaba cuando has encontrado todas las parejas.</p>
                 <p>· El tiempo y el número de intentos son ilimitados.</p>
+                <br>
+                <a class="casilla" href="Ranking.php">RANKING</a> 
             </td>
             <td rowspan="4">
                 <img class="separacion" src="./imgs/whiteline.png">
