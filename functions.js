@@ -63,12 +63,15 @@ function Cronometro(){
 		control-=1;},1000);
 
 }
+<<<<<<< HEAD
 =======
 /*Con esta funcion inicamos el juego
 function Jugar(nivel){
 	window.location.href = "Juego.php?nivel=" + nivel;
 }*/
 >>>>>>> origin/Integracion
+=======
+>>>>>>> fdee67cacd07fced9daec91d2c9ff8ae757b2a18
 
 //Esperar 2 segundos para ocultar las cartas
 function esperando(){

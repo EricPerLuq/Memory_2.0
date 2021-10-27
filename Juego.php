@@ -33,6 +33,9 @@
 <body onload="Cronometro()">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fdee67cacd07fced9daec91d2c9ff8ae757b2a18
 	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
 	<h2><span class="Crono" id="Cronometro">Tiempo: 30 </span></h2>
 	<table border="black" width=400 height=400>
@@ -46,6 +49,7 @@
 			foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 				array_push($contadoresCartas, 0);
 				$contadorCartas+=1;
+<<<<<<< HEAD
 			}
 =======
 	<h2><span id="contadorDeIntentos">Intentos: 0 </span></h2> 
@@ -121,12 +125,15 @@ for ($i=0; $i < $rows; $i++) {
 			if ($contadoresCartas[$rand]==0 or $contadoresCartas[$rand]==1) {
 			   	$contadoresCartas[$rand]+=1;
 			   	$cartaCorrecta=true;
+=======
+>>>>>>> fdee67cacd07fced9daec91d2c9ff8ae757b2a18
 			}
 		}
 		$idCarta+=1;
 		$cartaCorrecta=false;
 		echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
 
+<<<<<<< HEAD
 	}
 	echo"</tr>";
 }
@@ -148,6 +155,26 @@ for ($i=0; $i < $rows/2; $i++) {
 	$cartaCorrecta=false;
 }
 ?>
+=======
+			while ($nivel<2) {
+				echo"<tr>";
+				foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
+					while ($imagenCorrecta==false) { 
+						$rand=rand(0,$contadorCartas);
+						if ($contadoresCartas[$rand]==0 or $contadoresCartas[$rand]==1) {
+							$contadoresCartas[$rand]+=1;
+							$imagenCorrecta=true;
+						}
+					}
+					$idCarta+=1;
+					$imagenCorrecta=false;
+					echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png'></td> ";
+				}
+				echo"</tr>";
+				$nivel=$nivel+1;
+			}
+		?>
+>>>>>>> fdee67cacd07fced9daec91d2c9ff8ae757b2a18
 	</table>
 <<<<<<< HEAD
 	<div class="botones">
