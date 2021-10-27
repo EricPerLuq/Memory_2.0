@@ -1,3 +1,4 @@
-Hola[10]
-Buenas[33]
-Yes[50]
+Eric=>9
+Laura=>9
+Ryu=>10
+Prueba=>5

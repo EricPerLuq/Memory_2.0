@@ -1,0 +1,54 @@
+.title {
+    font-family: "arial";
+    text-align: center;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.Div-flex {
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.Div-marco {
+    font-weight: bold;
+    color: black;
+    border: 1px solid #935116;
+    background-color: #af601a;
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
+}
+
+.contadorDeIntentos {
+    font-weight: bold;
+    font-size: x-large;
+    font-family: "arial";
+    padding-left: 140px;
+}
+
+p {
+    font-weight: bold;
+    font-size: x-large;
+    font-family: "arial";
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.casilla{
+    width: 200px;
+    height: 80px;
+    font-weight: bold;
+}
