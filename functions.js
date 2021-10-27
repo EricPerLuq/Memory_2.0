@@ -6,6 +6,22 @@ var contIntentos=0;
 var srcTemp="";
 var contErrores=0;
 
+/*document.getElementById(idcarta).oncontextmenu = function (e) {
+							var isRightMB;
+							console.log(e);
+							console.log(window.event);
+							e = e || window.event;
+
+							if("which" in e) {
+								isRightMB=e.which == 3;
+							}
+							else if ("button" in e) {
+								isRightMB = e.button==2;
+							}
+							alert("Right mouse button " + (isRightMB ? "" : " was not")+ "clicked!");
+						}*/
+
+
 //Gira la carta que se pulsa
 function girarCarta(idcarta, anverso) {
 	if (contGiradas==0) {
@@ -29,6 +45,21 @@ function girarCarta(idcarta, anverso) {
 	}
 }
 
+function girarCartaViuda(idcarta) {
+	cartaActual=document.getElementById(idcarta);
+	srcTemp=cartaActual.src.split("/");
+	srcTemp=srcTemp[srcTemp.length-1];
+	srcTemp=srcTemp.split(".");
+	srcTemp=srcTemp[0];
+	if (srcTemp==="reverso") {
+		cartaActual.src = "./imgs/Cartas/cartaMarcada.png";
+		cartaActual.style.border = "1px solid red";
+	} else {
+		cartaActual.src= "./imgs/reverso.png";
+		cartaActual.style.border="0px";
+	}
+}
+
 //Compara que las cartas sean iguales
 function compararCartas(primeraCartaComparar, segundaCartaComparar){
 	segundaCarta=cartaActual;
@@ -43,11 +74,6 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 		comprobarGanador();
 	}
 }
-
-/*Con esta funcion inicamos el juego
-function Jugar(nivel){
-	window.location.href = "Juego.php?nivel=" + nivel;
-}*/
 
 //Esperar 2 segundos para ocultar las cartas
 function esperando(){
@@ -81,3 +107,19 @@ function cartaViuda(cartaNueva, totalCuadros) {
 	document.getElementById(cartaACambiar).setAttribute('onclick', "girarCarta(" + cartaACambiar + ", "+ cartaNueva + ")");
 	console.log("Después: " + document.getElementById(cartaACambiar).onclick);
 }
+
+document.oncontextmenu = function(e) {
+	if (e.which===3) {
+		console.log("Right click detected");
+	}
+	console.log(e.target.getAttribute("onclick"));
+	onclickParameters=e.target.getAttribute("onclick");
+	onclickParameters=onclickParameters.split("(");
+	onclickParameters=onclickParameters[1].split(",");
+	onclickIdCarta=onclickParameters[0];
+	/*onclickAnverso=onclickParameters[1].substring(1);
+	onclickAnverso=onclickAnverso.substring(0,onclickAnverso.length-1);*/
+	console.log("ID Carta: " + onclickIdCarta);
+	girarCartaViuda(onclickIdCarta);
+	return false;
+};
