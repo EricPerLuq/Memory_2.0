@@ -109,9 +109,11 @@ for ($i=0; $i < $rows; $i++) {
 	}
 	echo"</tr>";
 }
-echo "<script>
-		window.onload=pasarRows($rows);
-	</script>";
+if ($advanced==1) {
+	echo "<script>
+			window.onload=pasarRows($rows);
+		</script>";
+}
 		echo "
 <INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
 echo"<INPUT TYPE=HIDDEN id='nombre' value=".$Nombre.">";

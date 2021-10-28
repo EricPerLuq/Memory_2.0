@@ -6,22 +6,6 @@ var contIntentos=0;
 var srcTemp="";
 var contErrores=0;
 
-/*document.getElementById(idcarta).oncontextmenu = function (e) {
-							var isRightMB;
-							console.log(e);
-							console.log(window.event);
-							e = e || window.event;
-
-							if("which" in e) {
-								isRightMB=e.which == 3;
-							}
-							else if ("button" in e) {
-								isRightMB = e.button==2;
-							}
-							alert("Right mouse button " + (isRightMB ? "" : " was not")+ "clicked!");
-						}*/
-
-
 //Gira la carta que se pulsa
 function girarCarta(idcarta, anverso) {
 	if (contGiradas==0) {
