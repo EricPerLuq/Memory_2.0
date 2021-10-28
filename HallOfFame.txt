@@ -1,7 +1,0 @@
-Eric=>9
-Laura=>9
-Ryu=>10
-Prueba=>5
-Ryu1=>95
-Ryu2=>23.333333333333
-Ryu3=>15
