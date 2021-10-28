@@ -70,13 +70,11 @@ function esperando(){
 
 //Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
-    var tiempoRes=document.getElementById("Cronometro").textContent;
+    var tiempoRes=document.getElementById("cronometro").textContent;
     var nombre=document.getElementById("nombre").value;
     var lvl=document.getElementById("nivel").value;
     var todasCartas = document.getElementsByTagName("img");
-    var tiempoRes=document.getElementById("Cronometro").textContent;
-    var nombre=document.getElementById("nombre").value;
-    var lvl=document.getElementById("nivel").value;
+    var tiempoRes=document.getElementById("cronometro").textContent;
     var ganador=true;
     var comprobarGiradas=0;
     for (i=0; i<todasCartas.length; i++) {
