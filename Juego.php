@@ -15,7 +15,7 @@
 	<?php
 $nivel=$_GET["level"];
 $advanced=$_GET["advanced"];
-$Nombre=$_GET["nombreUsuario"];
+$nombre=$_GET["nombreUsuario"];
 $rows=0;
 $columns=0;
 $totalCartas=0;
@@ -112,29 +112,10 @@ for ($i=0; $i < $rows; $i++) {
 if ($advanced==1) {
 	echo "<script>
 			window.onload=pasarRows($rows);
-		</script>";
+		  </script>";
 }
-		echo "
-<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
-echo"<INPUT TYPE=HIDDEN id='nombre' value=".$Nombre.">";
-
-		/*if ($advanced==true) {
-			for ($i=$totalCartas; $i < 45; $i++) { 
-				array_push($contadoresCartasViudas, 0);
-			}
-			for ($i=0; $i < $rows/2; $i++) { 
-				while ($cartaCorrecta==false) { 
-					$cartaNueva=rand($totalCartas/2,26);
-					if ($contadoresCartasViudas[$rand]==0) {
-						echo "<script>";
-						echo "cartaViuda($cartaNueva,$totalCuadros);";
-						echo "</script>";
-						$cartaCorrecta=true;
-					}
-				}
-				$cartaCorrecta=false;
-			}
-		}*/
+echo "<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
+echo"<INPUT TYPE=HIDDEN id='nombre' value=".$nombre.">";
 		?>
 
 	</table>

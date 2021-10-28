@@ -75,8 +75,8 @@ function esperando(){
 //Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
     var todasCartas = document.getElementsByTagName("img");
-    var TiempoRes=document.getElementById("Cronometro").textContent;
-    var Nombre=document.getElementById("nombre").value;
+    var tiempoRes=document.getElementById("Cronometro").textContent;
+    var nombre=document.getElementById("nombre").value;
     var lvl=document.getElementById("nivel").value;
     var ganador=true;
     var comprobarGiradas=0;
@@ -95,7 +95,7 @@ function comprobarGanador() {
     }
     if (ganador===true) {
     	contErrores = contIntentos - (todasCartas.length/2);
-    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
+    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +tiempoRes+"&Nombre="+Nombre;
     }
 }
 function cartaViuda(cartaNueva, totalCuadros) {
@@ -125,32 +125,32 @@ function pasarRows(rows) {
 
 //Con esta funcion iniciamos el cronometro
 function Cronometro(){
-	var Tiempo=0;
-	var Nivel=document.getElementById("nivel").value;
-	console.log(Nivel);
-	if (Nivel==1) {
-		Tiempo=30;
-		ArrancaCrono(Tiempo);}
-	else if (Nivel==2) {
-		Tiempo=45;
-		ArrancaCrono(Tiempo);
-		console.log(Tiempo);
-	}else if (Nivel==3) {
-		Tiempo=60;
-		ArrancaCrono(Tiempo);
-	}else if (Nivel==4) {
-		Tiempo=85;
-		ArrancaCrono(Tiempo);
-	}else if (Nivel==5) {
-		Tiempo=120;
-		ArrancaCrono(Tiempo);
+	var tiempo=0;
+	var nivel=document.getElementById("nivel").value;
+	console.log(nivel);
+	if (nivel==1) {
+		tiempo=30;
+		ArrancaCrono(tiempo);}
+	else if (nivel==2) {
+		tiempo=45;
+		ArrancaCrono(tiempo);
+		console.log(tiempo);
+	}else if (nivel==3) {
+		tiempo=60;
+		ArrancaCrono(tiempo);
+	}else if (nivel==4) {
+		tiempo=85;
+		ArrancaCrono(tiempo);
+	}else if (nivel==5) {
+		tiempo=120;
+		ArrancaCrono(tiempo);
 	}
 }
-function ArrancaCrono(Tiempo){
+function ArrancaCrono(tiempo){
 	var SpanNumero=document.getElementById("Cronometro");
 	window.setInterval(function(){
-		if (Tiempo==0){
+		if (tiempo==0){
 		window.location.href="gameOver.php";
 		}
-		SpanNumero.innerHTML = "Tiempo: "+Tiempo;
-		Tiempo-=1;},1000);}
+		SpanNumero.innerHTML = "Tiempo: "+tiempo;
+		tiempo-=1;},1000);}
