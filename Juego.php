@@ -12,7 +12,8 @@
 	
 	
 	<table border="black" width=400 heigth=400>
-	<?php
+<?php
+$nombre=$_GET["nombreUsuario"];
 $nivel=$_GET["level"];
 $advanced=$_GET["advanced"];
 $nombre=$_GET["nombreUsuario"];
@@ -25,6 +26,7 @@ $contadoresCartasViudas=[];
 $posicionesCartasViudas=[];
 $contadorCartas=-1;
 $idCarta=0;
+
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 	$contadorCartas+=1;
@@ -109,6 +111,7 @@ for ($i=0; $i < $rows; $i++) {
 	}
 	echo"</tr>";
 }
+
 if ($advanced==1) {
 	echo "<script>
 			window.onload=pasarRows($rows);

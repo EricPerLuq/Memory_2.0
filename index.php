@@ -22,7 +22,6 @@
             <td rowspan="4">
                 <img class="separacion" src="./imgs/whiteline.png">
             </td>
-
             <td>
                 <img class="imagen" src="./imgs/CartaPortada.png">
             </td>

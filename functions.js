@@ -5,6 +5,8 @@ var cartaActual="";
 var contIntentos=0;
 var srcTemp="";
 var contErrores=0;
+var viudasGiradas=0;
+var maxViudasGiradas=0;
 
 //Gira la carta que se pulsa
 function girarCarta(idcarta, anverso) {
@@ -29,6 +31,7 @@ function girarCarta(idcarta, anverso) {
 	}
 }
 
+// Gira las cartas viudas
 function girarCartaViuda(idcarta) {
 	cartaActual=document.getElementById(idcarta);
 	srcTemp=cartaActual.src.split("/");
@@ -74,6 +77,9 @@ function esperando(){
 
 //Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
+    var tiempoRes=document.getElementById("Cronometro").textContent;
+    var nombre=document.getElementById("nombre").value;
+    var lvl=document.getElementById("nivel").value;
     var todasCartas = document.getElementsByTagName("img");
     var tiempoRes=document.getElementById("Cronometro").textContent;
     var nombre=document.getElementById("nombre").value;
@@ -95,17 +101,11 @@ function comprobarGanador() {
     }
     if (ganador===true) {
     	contErrores = contIntentos - (todasCartas.length/2);
-    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +tiempoRes+"&Nombre="+Nombre;
+    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
     }
 }
-function cartaViuda(cartaNueva, totalCuadros) {
-	cartaACambiar=Math.floor(Math.random() * totalCuadros);
-	console.log("Carta a Cambiar: " + cartaACambiar);
-	console.log("Cambiar por la carta: " + cartaNueva);
-	console.log("Antes: " + document.getElementById(cartaACambiar).onclick);
-	document.getElementById(cartaACambiar).setAttribute('onclick', "girarCarta(" + cartaACambiar + ", "+ cartaNueva + ")");
-	console.log("Después: " + document.getElementById(cartaACambiar).onclick);
-}
+
+// Detecta y reacciona a los clicks derechos
 document.oncontextmenu = function(e) {
 	if (viudasGiradas<=maxViudasGiradas) {
 		onclickParameters=e.target.getAttribute("onclick");
@@ -153,4 +153,5 @@ function ArrancaCrono(tiempo){
 		window.location.href="gameOver.php";
 		}
 		SpanNumero.innerHTML = "Tiempo: "+tiempo;
-		tiempo-=1;},1000);}
+		tiempo-=1;},1000);
+}
