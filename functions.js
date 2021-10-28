@@ -51,13 +51,19 @@ function girarCartaViuda(idcarta) {
 	srcTemp=srcTemp[srcTemp.length-1];
 	srcTemp=srcTemp.split(".");
 	srcTemp=srcTemp[0];
-	if (srcTemp==="reverso") {
+	if (srcTemp==="reverso" && viudasGiradas<maxViudasGiradas) {
 		cartaActual.src = "./imgs/Cartas/cartaMarcada.png";
 		cartaActual.style.border = "1px solid red";
-	} else {
+		viudasGiradas+=1;
+	} else if (srcTemp!="reverso") {
 		cartaActual.src= "./imgs/reverso.png";
 		cartaActual.style.border="0px";
+		viudasGiradas-=1;
 	}
+	console.log("Viudas giradas: " + viudasGiradas);
+	console.log("Max viudas: " + maxViudasGiradas);
+
+	comprobarGanador();
 }
 
 //Compara que las cartas sean iguales
@@ -87,14 +93,20 @@ function comprobarGanador() {
     var todasCartas = document.getElementsByTagName("img");
     var TiempoRes=document.getElementById("Cronometro").textContent;
     var Nombre=document.getElementById("nombre").value;
-    console.log(Nombre);
     var lvl=document.getElementById("nivel").value;
     var ganador=true;
+    var comprobarGiradas=0;
     for (i=0; i<todasCartas.length; i++) {
     	srcTemp2=todasCartas[i].src.split("/");
 		srcTemp2=srcTemp2[srcTemp2.length-1];
         if (srcTemp2=="reverso.png") {
             ganador=false;
+        }
+        if (srcTemp2=="cartaMarcada.png") {
+        	comprobarGiradas+=1;
+        }
+        if (comprobarGiradas===maxViudasGiradas) {
+        	viudasGiradas=maxViudasGiradas;
         }
     }
     if (ganador===true) {
@@ -102,7 +114,6 @@ function comprobarGanador() {
     	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
     }
 }
-
 function cartaViuda(cartaNueva, totalCuadros) {
 	cartaACambiar=Math.floor(Math.random() * totalCuadros);
 	console.log("Carta a Cambiar: " + cartaACambiar);
@@ -111,22 +122,23 @@ function cartaViuda(cartaNueva, totalCuadros) {
 	document.getElementById(cartaACambiar).setAttribute('onclick', "girarCarta(" + cartaACambiar + ", "+ cartaNueva + ")");
 	console.log("Después: " + document.getElementById(cartaACambiar).onclick);
 }
-
 document.oncontextmenu = function(e) {
-	if (e.which===3) {
-		console.log("Right click detected");
+	if (viudasGiradas<=maxViudasGiradas) {
+		onclickParameters=e.target.getAttribute("onclick");
+		onclickParameters=onclickParameters.split("(");
+		onclickParameters=onclickParameters[1].split(",");
+		onclickIdCarta=onclickParameters[0];
+		girarCartaViuda(onclickIdCarta);
 	}
-	console.log(e.target.getAttribute("onclick"));
-	onclickParameters=e.target.getAttribute("onclick");
-	onclickParameters=onclickParameters.split("(");
-	onclickParameters=onclickParameters[1].split(",");
-	onclickIdCarta=onclickParameters[0];
-	/*onclickAnverso=onclickParameters[1].substring(1);
-	onclickAnverso=onclickAnverso.substring(0,onclickAnverso.length-1);*/
-	console.log("ID Carta: " + onclickIdCarta);
-	girarCartaViuda(onclickIdCarta);
 	return false;
 };
+
+// Adjudica el máximo de cartas que puedes girar (viudas)
+function pasarRows(rows) {
+	maxViudasGiradas = rows;
+	console.log("Número de viudas: " + maxViudasGiradas);
+}
+
 //Con esta funcion iniciamos el cronometro
 function Cronometro(){
 	var Tiempo=0;

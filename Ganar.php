@@ -76,6 +76,9 @@ $formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*1);}
 	
 	$file = fopen('HallOfFame.txt',"a");
 		//fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
+	if ($formula>100) {
+		$formula=100-$Intentos;
+	}
 		fwrite($file, $Nombre."=>".$formula."\n");
 	
 		fclose($file);
