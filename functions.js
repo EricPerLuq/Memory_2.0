@@ -85,6 +85,10 @@ function esperando(){
 //Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
     var todasCartas = document.getElementsByTagName("img");
+    var TiempoRes=document.getElementById("Cronometro").textContent;
+    var Nombre=document.getElementById("nombre").value;
+    console.log(Nombre);
+    var lvl=document.getElementById("nivel").value;
     var ganador=true;
     for (i=0; i<todasCartas.length; i++) {
     	srcTemp2=todasCartas[i].src.split("/");
@@ -95,7 +99,7 @@ function comprobarGanador() {
     }
     if (ganador===true) {
     	contErrores = contIntentos - (todasCartas.length/2);
-    	window.location.href = "Ganar.php?Errores=" + contErrores;
+    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
     }
 }
 
@@ -125,15 +129,32 @@ document.oncontextmenu = function(e) {
 };
 //Con esta funcion iniciamos el cronometro
 function Cronometro(){
-	console.log("Ha entrado");
-	var control=30;
+	var Tiempo=0;
+	var Nivel=document.getElementById("nivel").value;
+	console.log(Nivel);
+	if (Nivel==1) {
+		Tiempo=30;
+		ArrancaCrono(Tiempo);}
+	else if (Nivel==2) {
+		Tiempo=45;
+		ArrancaCrono(Tiempo);
+		console.log(Tiempo);
+	}else if (Nivel==3) {
+		Tiempo=60;
+		ArrancaCrono(Tiempo);
+	}else if (Nivel==4) {
+		Tiempo=85;
+		ArrancaCrono(Tiempo);
+	}else if (Nivel==5) {
+		Tiempo=120;
+		ArrancaCrono(Tiempo);
+	}
+}
+function ArrancaCrono(Tiempo){
 	var SpanNumero=document.getElementById("Cronometro");
 	window.setInterval(function(){
-		if (control==0) {
+		if (Tiempo==0){
 		window.location.href="gameOver.php";
-
 		}
-		SpanNumero.innerHTML = "Tiempo: "+control;
-		control-=1;},1000);
-
-}
+		SpanNumero.innerHTML = "Tiempo: "+Tiempo;
+		Tiempo-=1;},1000);}

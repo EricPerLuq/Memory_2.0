@@ -8,12 +8,13 @@
 </head>
 <body onload="Cronometro()">
 	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
-	<h2><span class="casilla" id="Cronometro">Tiempo: 30 </span></h2>
+	<h2><span class="casilla" id="Cronometro">Tiempo:  </span></h2>
 	
 	
 	<table border="black" width=400 heigth=400>
 
 		<?php
+		$Nombre=$_GET["nombreUsuario"];
 		$nivel=$_GET["level"];
 		$advanced=$_GET["advanced"];
 		$rows=0;
@@ -25,7 +26,6 @@
 		$posicionesCartasViudas=[];
 		$contadorCartas=-1;
 		$idCarta=0;
-
 		foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 			array_push($contadoresCartas, 0);
 			$contadorCartas+=1;
@@ -111,7 +111,10 @@
 				}
 			}
 			echo"</tr>";
-		}
+		}echo "
+<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
+echo"<INPUT TYPE=HIDDEN id='nombre' value=".$Nombre.">";
+
 		/*if ($advanced==true) {
 			for ($i=$totalCartas; $i < 45; $i++) { 
 				array_push($contadoresCartasViudas, 0);

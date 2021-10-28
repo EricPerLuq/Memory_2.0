@@ -7,9 +7,7 @@
 	<title>Memory 2.0</title>			
 </head>
 <body>
-	<div align="center">
-        <img src="/imgs/titulo.png">
-    </div>
+	
     <table align="center">
         <tr>
             <td class="instrucciones" rowspan="4">
@@ -32,7 +30,7 @@
         <tr>
 			<td>
 				<form action="Juego.php" method="GET">
-					<input type="checkbox" id="advanced "name="advanced" value="Advanced">Advanced
+					<input type="checkbox" id="advanced " name="advanced" value="Advanced">Advanced
 			</td>
 		</tr>
 		<tr>
