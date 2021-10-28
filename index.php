@@ -50,7 +50,7 @@
 		<tr>
 			<td class="filaBotonJugar">
 					<input type="text" name="nombreUsuario" placeholder="Nombre" required/>
-                    <input class="casilla" type="submit" value="JUGAR"  onclick="Jugar()"/>
+                    <input class="casilla" type="submit" value="JUGAR"/>
 				</form>
 			</td>
 		</tr>
