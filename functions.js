@@ -26,8 +26,6 @@ function girarCarta(idcarta, anverso) {
 		} else {
 			compararCartas(primeraCarta, cartaActual);
 		}
-	} else {
-		console.log("Ya hay dos cartas giradas o la carta ya está girada");
 	}
 }
 
@@ -47,9 +45,6 @@ function girarCartaViuda(idcarta) {
 		cartaActual.style.border="0px";
 		viudasGiradas-=1;
 	}
-	console.log("Viudas giradas: " + viudasGiradas);
-	console.log("Max viudas: " + maxViudasGiradas);
-
 	comprobarGanador();
 }
 
@@ -60,9 +55,7 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 	document.getElementById("contadorDeIntentos").innerHTML = "Intentos: " + contIntentos;
 	if (primeraCartaComparar.src!=segundaCartaComparar.src) {
 		setTimeout(esperando, 2000);
-		console.log("No son iguales");
 	} else {
-		console.log("Son iguales!");
 		contGiradas=0;
 		comprobarGanador();
 	}
@@ -101,7 +94,7 @@ function comprobarGanador() {
     }
     if (ganador===true) {
     	contErrores = contIntentos - (todasCartas.length/2);
-    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
+    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +tiempoRes+"&Nombre="+nombre;
     }
 }
 
@@ -124,34 +117,33 @@ function pasarRows(rows) {
 }
 
 //Con esta funcion iniciamos el cronometro
-function Cronometro(){
+function cronometro(){
 	var tiempo=0;
 	var nivel=document.getElementById("nivel").value;
 	console.log(nivel);
 	if (nivel==1) {
 		tiempo=30;
-		ArrancaCrono(tiempo);}
+		arrancaCrono(tiempo);}
 	else if (nivel==2) {
 		tiempo=45;
-		ArrancaCrono(tiempo);
-		console.log(tiempo);
+		arrancaCrono(tiempo);
 	}else if (nivel==3) {
 		tiempo=60;
-		ArrancaCrono(tiempo);
+		arrancaCrono(tiempo);
 	}else if (nivel==4) {
 		tiempo=85;
-		ArrancaCrono(tiempo);
+		arrancaCrono(tiempo);
 	}else if (nivel==5) {
 		tiempo=120;
-		ArrancaCrono(tiempo);
+		arrancaCrono(tiempo);
 	}
 }
-function ArrancaCrono(tiempo){
-	var SpanNumero=document.getElementById("Cronometro");
+function arrancaCrono(tiempo){
+	var spanNumero=document.getElementById("cronometro");
 	window.setInterval(function(){
 		if (tiempo==0){
 		window.location.href="gameOver.php";
 		}
-		SpanNumero.innerHTML = "Tiempo: "+tiempo;
+		spanNumero.innerHTML = "Tiempo: "+tiempo;
 		tiempo-=1;},1000);
 }

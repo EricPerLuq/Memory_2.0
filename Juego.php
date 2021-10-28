@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/juego.css">
 </head>
-<body onload="Cronometro()">
+<body>
 	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
-	<h2><span class="casilla" id="Cronometro">Tiempo:  </span></h2>
+	<h2><span class="casilla" id="cronometro">Tiempo:  </span></h2>
 	
 	
 	<table border="black" width=400 heigth=400>
@@ -113,10 +113,9 @@ for ($i=0; $i < $rows; $i++) {
 }
 
 if ($advanced==1) {
-	echo "<script>
-			window.onload=pasarRows($rows);
-		  </script>";
+	echo "<script>window.onload=pasarRows($rows);";
 }
+echo "window.onload=cronometro(); </script>";
 echo "<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
 echo"<INPUT TYPE=HIDDEN id='nombre' value=".$nombre.">";
 		?>
