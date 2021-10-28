@@ -77,6 +77,9 @@ function esperando(){
 
 //Repasa todas las cartas y comprueba si tienen reverso
 function comprobarGanador() {
+    var TiempoRes=document.getElementById("Cronometro").textContent;
+    var Nombre=document.getElementById("nombre").value;
+    var lvl=document.getElementById("nivel").value;
     var todasCartas = document.getElementsByTagName("img");
     var ganador=true;
     var comprobarGiradas=0;
@@ -95,19 +98,9 @@ function comprobarGanador() {
     }
     if (ganador===true) {
     	contErrores = contIntentos - (todasCartas.length/2);
-    	window.location.href = "Ganar.php?Errores=" + contErrores;
+    	window.location.href = "Ganar.php?Errores=" + contErrores + "&lvl=" + lvl + "&Tiempo=" +TiempoRes+"&Nombre="+Nombre;
     }
 }
-
-// Genera cartas viudas
-/*function cartaViuda(cartaNueva, totalCuadros) {
-	cartaACambiar=Math.floor(Math.random() * totalCuadros);
-	console.log("Carta a Cambiar: " + cartaACambiar);
-	console.log("Cambiar por la carta: " + cartaNueva);
-	console.log("Antes: " + document.getElementById(cartaACambiar).onclick);
-	document.getElementById(cartaACambiar).setAttribute('onclick', "girarCarta(" + cartaACambiar + ", "+ cartaNueva + ")");
-	console.log("Después: " + document.getElementById(cartaACambiar).onclick);
-}*/
 
 // Detecta y reacciona a los clicks derechos
 document.oncontextmenu = function(e) {
@@ -125,4 +118,38 @@ document.oncontextmenu = function(e) {
 function pasarRows(rows) {
 	maxViudasGiradas = rows;
 	console.log("Número de viudas: " + maxViudasGiradas);
+}
+
+//Con esta funcion iniciamos el cronometro
+function Cronometro(){
+	var Tiempo=0;
+	var Nivel=document.getElementById("nivel").value;
+	console.log(Nivel);
+	if (Nivel==1) {
+		Tiempo=30;
+		ArrancaCrono(Tiempo);}
+	else if (Nivel==2) {
+		Tiempo=45;
+		ArrancaCrono(Tiempo);
+		console.log(Tiempo);
+	}else if (Nivel==3) {
+		Tiempo=60;
+		ArrancaCrono(Tiempo);
+	}else if (Nivel==4) {
+		Tiempo=85;
+		ArrancaCrono(Tiempo);
+	}else if (Nivel==5) {
+		Tiempo=120;
+		ArrancaCrono(Tiempo);
+	}
+}
+
+function ArrancaCrono(Tiempo){
+	var SpanNumero=document.getElementById("Cronometro");
+	window.setInterval(function(){
+		if (Tiempo==0){
+		window.location.href="gameOver.php";
+		}
+		SpanNumero.innerHTML = "Tiempo: "+Tiempo;
+		Tiempo-=1;},1000);
 }

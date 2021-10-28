@@ -3,39 +3,17 @@
 <head>
 	<title>Memory 2.0</title>
 	<script type="text/javascript" src="functions.js"></script>
-	<style type="text/css">
-		body {
-			align-content: center;
-			background-image: url("./imgs/fondo-bienvenida.jpg");
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			background-attachment: fixed;
-					}	
-		table{
-			margin:auto;			
-
-		}
-		img{
-			height: 10;
-			width:10;
-		}
-		span{
-			margin-right: 100px;
-			margin-top:5px;
-	        float: right;
-	        border: solid;
-	        border-color: #f4d03f;
-	        color: #fdfefe;
-	        background-image: url("./imgs/fondo-boton.jpeg");
-	    }
-	</style>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/juego.css">
 </head>
-<body>
-
+<body onload="Cronometro()">
 	<h2><span id="contadorDeIntentos">Intentos: 0 </span></h2> 
+	<h2><span class="casilla" id="Cronometro">Tiempo:  </span></h2>
+
 	<table border="black" width=400 heigth=400>
 
 <?php
+$Nombre=$_GET["nombreUsuario"];
 $nivel=$_GET["level"];
 $advanced=$_GET["advanced"];
 $rows=0;
@@ -135,26 +113,12 @@ for ($i=0; $i < $rows; $i++) {
 echo "<script>
 		window.onload=pasarRows($rows);
 	</script>";
-
-/*if ($advanced==true) {
-	for ($i=$totalCartas; $i < 45; $i++) { 
-		array_push($contadoresCartasViudas, 0);
-	}
-	for ($i=0; $i < $rows/2; $i++) { 
-		while ($cartaCorrecta==false) { 
-			$cartaNueva=rand($totalCartas/2,26);
-			if ($contadoresCartasViudas[$rand]==0) {
-				echo "<script>";
-				echo "cartaViuda($cartaNueva,$totalCuadros);";
-				echo "</script>";
-				$cartaCorrecta=true;
-			}
-		}
-		$cartaCorrecta=false;
-	}
-}*/
+echo "<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
+echo"<INPUT TYPE=HIDDEN id='nombre' value=".$Nombre.">";
 ?>
 	</table>
+
+	<a class="casilla" href="index.php">Terminar partida</a>
 
 </body>
 </html>

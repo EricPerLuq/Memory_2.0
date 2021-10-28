@@ -1,0 +1,64 @@
+table{
+	margin-top: 80px;
+	margin:auto;
+	border-color: solid black;
+	border:solid black 2px;
+	width: 50%;
+	position: relative;
+	top: 50px;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #2980b9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #5bade4;
+}
+
+table {
+  background-color: #2980b9;
+}
+
+.Img{
+	width: 250px;
+	position: absolute;
+	left: 500px;
+	margin-top: 15px;
+}
+
+.Mascara{
+	width: 590px;
+	position: absolute;
+	right: -290px;
+
+}
+
+.Mascara2{
+	width: 350px;
+	position: absolute;
+	left: -200px;
+}
+
+.casilla {
+    float: right;
+    margin-top: 250px;
+    margin-right: 10px;
+	width: 200px;
+    font-weight: bold;
+    justify-content: center;
+}

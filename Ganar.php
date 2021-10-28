@@ -37,7 +37,6 @@
 
 	<div class="Div-flex">
 		<div class="Div-marco">
-
 			<div class="Gif">
 				<img  src="imgs/Juego_Calamar2.gif">	
 			</div>
@@ -47,20 +46,49 @@
 				<p class="contadorDeIntentos">
 				<?php 
 					$Intentos= $_GET['Errores'];
-					$Tiempo=0;
+					$TiempoRes=$_GET['Tiempo'];
+					$Nivel= $_GET['lvl'];
+					$Nombre=$_GET['Nombre'];
+					$varTiempo=array_map('intval',explode(": ", $TiempoRes));
 				?> 
 				</p>		
-					<p>Pon tu nombre:</p>
-					<input type="text" name="Nombre">
-					<button type="submit" name="submit" ">Enviar</button>
+				
 			</form>
+		</div>	
+	</form>
+</div>
+<?php
+if($Nivel==1){
+	$Tiempo=30;
+	$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*5);}
+if($Nivel==2){
+	$Tiempo=45;
+$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*4);}
+if($Nivel==3){
+	$Tiempo=60;
+$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*3);}
+if($Nivel==4){
+	$Tiempo=85;
+$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*2);}
+if($Nivel==5){
+	$Tiempo=120;
+$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*1);}
+	
+	$file = fopen('HallOfFame.txt',"a");
+		//fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
+	if ($formula>100) {
+		$formula=100-$Intentos;
+	}
+		fwrite($file, $Nombre."=>".$formula."\n");
+	
+		fclose($file);
+	
 
-
-		</div>
+?>
 	</div>
 
 	<div class="botones">
-		<form action="index.html">
+		<form action="index.php">
 			<input class="casilla" type="submit" value="Inicio"/>
 		</form>
 		<form action="Ranking.php">
@@ -68,13 +96,9 @@
 		</form>
 	</div>
 
-	<?php
-		if(isset($_POST["submit"])) {	
-			$file = fopen('HallOfFame.txt',"a");
-				fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
-				fclose($file);
-		}
-	?>
+
 	
 </body>
+
+</html>
 </html>
