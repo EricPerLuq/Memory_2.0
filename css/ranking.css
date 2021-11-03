@@ -1,3 +1,15 @@
+h1 {
+	background-image: url(imgs/ranking.gif);
+	background-size: cover;
+	color: transparent;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 120px;
+	line-height: .75;
+	margin: 10px 0;
+}
 table{
 	margin-top: 80px;
 	margin:auto;
