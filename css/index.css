@@ -14,7 +14,7 @@ img {
 }
 
 .instrucciones{
-    text-align: -webkit-center;
+    text-align: center;
 }
 
 p {
@@ -41,4 +41,12 @@ p {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+    .filaBotonJugar {
+        font-size: x-small;
+        margin-right: 15px;
+    }
+
 }

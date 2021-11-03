@@ -15,9 +15,11 @@ body {
     background-image: url("../imgs/fondo-boton.jpeg");
     text-align-last: center;
     font-size: x-large;
+    font-weight: bold;
     padding: 1px 6px;
     text-align: center;
     text-transform: uppercase;
+    justify-content: center;
 }
 
 .botones {
@@ -29,6 +31,14 @@ body {
 a{
     text-decoration-line: none;
     text-transform: uppercase;
+    padding: 1px 6px;
+    font-weight: bold;
 }
 
+@media (max-width: 800px) {
+    .casilla {
+        font-size: large;
+    }
+    
+}
 

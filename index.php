@@ -7,7 +7,9 @@
 	<title>Memory 2.0</title>			
 </head>
 <body>
-	
+	<div align="center">
+        <img src="/imgs/titulo.png">
+    </div>
     <table align="center">
         <tr>
             <td class="instrucciones" rowspan="4">
@@ -22,7 +24,6 @@
             <td rowspan="4">
                 <img class="separacion" src="./imgs/whiteline.png">
             </td>
-
             <td>
                 <img class="imagen" src="./imgs/CartaPortada.png">
             </td>
@@ -50,10 +51,12 @@
 		<tr>
 			<td class="filaBotonJugar">
 					<input type="text" name="nombreUsuario" placeholder="Nombre" required/>
-                    <input class="casilla" type="submit" value="JUGAR"  onclick="Jugar()"/>
+                    <input class="casilla" type="submit" value="JUGAR"/>
 				</form>
 			</td>
 		</tr>
 	</table>
 </body>
 </html>
+
+

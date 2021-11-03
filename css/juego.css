@@ -1,27 +1,41 @@
 body{
     display: grid;
+    grid-template-rows: 50px 50px 1fr 35px;
 }
 
 table{
     margin:auto;
 }
 img{
-    width:180px;
-    height:auto;
-    
+    width: 10vh;
+    height:auto;  
 }
+
 span{
-    margin-right: 100px;
+    margin-right: 50px;
     float: right; 
 } 
-.botones{
-    margin-right: 10px;
-    float: right;
-}
+
 a{
     width: max-content;
     display: flex;
     justify-self: right;
-    margin-right: 100px;
+    margin-right: 50px;
     float: right; 
 }
+
+@media (max-width: 800px) {
+
+    body{
+        display: grid;
+        grid-template-rows: 32px 32px 1fr 35px;
+    }
+    span{
+        margin-right: 10px;
+    }  
+    a{
+        margin-right: 10px;
+    } 
+}
+
+
