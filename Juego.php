@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Memory 2.0</title>
-	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript" src="functions.js?a=<?php echo time();?>"></script>
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/juego.css">
 </head>
@@ -24,12 +24,13 @@ $cartaCorrecta=false;
 $contadoresCartas=[];
 $contadoresCartasViudas=[];
 $posicionesCartasViudas=[];
-$contadorCartas=-1;
 $idCarta=0;
+$cartasCasadas=[];
+$usosCartasCasadas=[];
+$idsCartasViudas=[];
 
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
-	$contadorCartas+=1;
 }
 switch ($nivel) {
 	case '1':
@@ -72,16 +73,46 @@ if (is_null($advanced)) {
 $totalCuadros=$rows*$columns;
 $totalCartas=round($rows*$columns/2);
 
-for ($i=0; $i < $totalCartas; $i++) { 
- 	array_push($contadoresCartas, 0);
-	$contadorCartas+=1;
- } 
-
+// Si no es advanced, genera un array de arrays de las ID de las cartas y las veces que se han colocado
+if ($advanced!=true) {
+	for ($i=0; $i < $totalCartas; $i++) { 
+		$infoCarta=[];
+		while ($cartaCorrecta==false) {
+				$idCartaCasada=rand(0,25);
+				if (!in_array($idCartaCasada, $cartasCasadas)) {
+					array_push($cartasCasadas, $idCartaCasada);
+					array_push($infoCarta, $idCartaCasada);
+					array_push($infoCarta, 0);
+					$cartaCorrecta=true;
+				}
+		}
+		$cartaCorrecta=false;
+		array_push($usosCartasCasadas, $infoCarta);
+	}
+}
+// Si es advanced, genera un array de arrays de las ID de las cartas y las veces que se han colocado
+else {
+	$totalCartasCasadasAdvanced=(($columns-1)*$rows)/2;
+	for ($i=0; $i < $totalCartasCasadasAdvanced; $i++) { 
+		$infoCarta=[];
+		while ($cartaCorrecta==false) {
+				$idCartaCasada=rand(0,25);
+				if (!in_array($idCartaCasada, $cartasCasadas)) {
+					array_push($cartasCasadas, $idCartaCasada);
+					array_push($infoCarta, $idCartaCasada);
+					array_push($infoCarta, 0);
+					$cartaCorrecta=true;
+				}
+		}
+		$cartaCorrecta=false;
+		array_push($usosCartasCasadas, $infoCarta);
+	}
+}
 if ($advanced==true) {
 	for ($i=0; $i < $rows; $i++) { 
 		while ($cartaCorrecta==false) {
 			$idCartaViuda=rand(1,$totalCuadros);
-			if (!in_array($idCartaViuda, $$posicionesCartasViudas)) {
+			if (!in_array($idCartaViuda, $posicionesCartasViudas)) {
 				array_push($posicionesCartasViudas, $idCartaViuda);
 				$cartaCorrecta=true;
 			}
@@ -95,29 +126,35 @@ for ($i=0; $i < $rows; $i++) {
 	for ($j=0; $j < $columns ; $j++) { 
 		$idCarta+=1;
 		if ($advanced==1 && in_array($idCarta, $posicionesCartasViudas)) {
-			$cartaViuda=rand($totalCartas,20);
-			echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $cartaViuda)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
-		} else {
-			while ($cartaCorrecta==false) { 
-				$rand=rand(0,$totalCartas-(1));
-				if ($contadoresCartas[$rand]==0 or $contadoresCartas[$rand]==1) {
-				   	$contadoresCartas[$rand]+=1;
-				   	$cartaCorrecta=true;
+			while ($cartaCorrecta==false) {
+				$cartaViuda=rand(0,25);
+				if (!in_array($cartaViuda, $cartasCasadas) && !in_array($cartaViuda, $idsCartasViudas)) {
+					array_push($idsCartasViudas, $cartaViuda);
+					$cartaCorrecta=true;
 				}
 			}
 			$cartaCorrecta=false;
-			echo "<td><img id=\"$idCarta\" onclick=\"girarCarta($idCarta, $rand)\" src='imgs/reverso.png' height='auto' width='180' ></td> \n";
+			echo "<td><img id='$idCarta' onclick='girarCarta($idCarta, $cartaViuda)' src='imgs/reverso.png' height='auto' width='180' ></td> \n";
+		} else {
+			while ($cartaCorrecta==false) { 
+				$rand=rand(1, count($usosCartasCasadas));
+				$rand-=1;
+				 if ($usosCartasCasadas[$rand][1]==0 || $usosCartasCasadas[$rand][1]==1) {
+				   	$usosCartasCasadas[$rand][1]+=1;
+				   	$cartaCorrecta=true;
+				} 
+			}
+			$alClickar= $usosCartasCasadas[$rand][0];
+			$cartaCorrecta=false;
+			echo "<td><img id='$idCarta' onclick='girarCarta($idCarta, $alClickar)' src='imgs/reverso.png' height='auto' width='180' ></td>\n";
 		}
 	}
-	echo"</tr>";
+	echo"</tr> ";
 }
 
-if ($advanced==1) {
-	echo "<script>window.onload=cronometro()($rows)</script>";
-}
-echo "<input type=\"hidden\" id=\"nivel\" value=\"".$nivel."\">";
-echo"<input type=\"hidden\" id=\"nombre\" value=\"".$nombre."\">";
-		?>
+echo "<INPUT TYPE=HIDDEN id='nivel' value=".$nivel.">";
+echo"<INPUT TYPE=HIDDEN id='nombre' value=".$nombre.">";
+?>
 
 	</table>
 	<a class="casilla" href="index.php">Terminar partida</a>

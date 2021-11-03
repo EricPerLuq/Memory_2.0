@@ -7,7 +7,44 @@
 	<title>Memory 2.0</title>			
 </head>
 <body>
-	
+	<script type="text/javascript">
+        window.onload=function(){
+        document.onkeydown=chars;
+        var barrera= document.getElementById("barra");
+        var barreraPos=barrera.getBoundingClientRect();
+        colision=barreraPos.right;
+    }
+        var leftRight=0;
+        var colision=0;
+    function chars(evento){
+            if (window.event) {
+                evento=window.event;
+                caracteres(evento.keyCode);
+            }}
+    function caracteres(chars){
+                    var carta= document.getElementById("carta");
+
+            var cartaPos=carta.getBoundingClientRect();
+            colision2=cartaPos.left;
+            console.log(colision2);
+            if (chars==39){
+                leftRight+=1;
+                document.getElementById("carta").style.marginLeft=leftRight+"px";
+            }
+            if (chars==37){
+                leftRight+=-1;
+                document.getElementById("carta").style.marginLeft=leftRight+"px";
+            }
+        
+            if (colision==colision2) {
+                var carta=document.getElementById("carta");
+                carta.style.visibility="hidden";
+            }else{
+                carta.style.visibility="visible";
+
+                            }
+    }
+    </script>
     <table align="center">
         <tr>
             <td class="instrucciones" rowspan="4">
@@ -20,10 +57,10 @@
                 <a class="casilla" href="Ranking.php">RANKING</a> 
             </td>
             <td rowspan="4">
-                <img class="separacion" src="./imgs/whiteline.png">
+                <img class="separacion" id="barra" src="./imgs/whiteline.png">
             </td>
             <td>
-                <img class="imagen" src="./imgs/CartaPortada.png">
+                <img class="imagen" id="carta" src="./imgs/CartaPortada.png">
             </td>
         </tr>
         <tr>

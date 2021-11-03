@@ -75,6 +75,8 @@ function comprobarGanador() {
     var lvl=document.getElementById("nivel").value;
     var todasCartas = document.getElementsByTagName("img");
     var tiempoRes=document.getElementById("cronometro").textContent;
+    var nombre=document.getElementById("nombre").value;
+    var lvl=document.getElementById("nivel").value;
     var ganador=true;
     var comprobarGiradas=0;
     for (i=0; i<todasCartas.length; i++) {
@@ -88,6 +90,7 @@ function comprobarGanador() {
         }
         if (comprobarGiradas===maxViudasGiradas) {
         	viudasGiradas=maxViudasGiradas;
+        	console.log(maxViudasGiradas);
         }
     }
     if (ganador===true) {
@@ -109,16 +112,34 @@ document.oncontextmenu = function(e) {
 };
 
 // Adjudica el máximo de cartas que puedes girar (viudas)
-function pasarRows(rows) {
-	maxViudasGiradas = rows;
-	console.log("Número de viudas: " + maxViudasGiradas);
+function pasarRows(nivel) {
+	switch (nivel) {
+		case "1":
+			maxViudasGiradas = 2;
+			break;
+		case "2":
+			maxViudasGiradas = 3;
+			break;
+		case "3":
+			maxViudasGiradas = 4;
+			break;
+		case "4":
+			maxViudasGiradas = 4;
+			break;
+		case "5":
+			maxViudasGiradas = 5;
+			break;
+		default:
+			maxViudasGiradas = 0;
+	}
 }
 
 //Con esta funcion iniciamos el cronometro
 function cronometro(){
 	var tiempo=0;
 	var nivel=document.getElementById("nivel").value;
-	console.log(nivel);
+	pasarRows(nivel);
+	console.log("Nivel: " + nivel);
 	if (nivel==1) {
 		tiempo=30;
 		arrancaCrono(tiempo);}
@@ -136,6 +157,7 @@ function cronometro(){
 		arrancaCrono(tiempo);
 	}
 }
+
 function arrancaCrono(tiempo){
 	var spanNumero=document.getElementById("cronometro");
 	window.setInterval(function(){
