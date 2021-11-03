@@ -21,11 +21,11 @@
 			<form action="" method="POST">
 				<p class="contadorDeIntentos">
 				<?php 
-					$Intentos= $_GET['Errores'];
-					$TiempoRes=$_GET['Tiempo'];
-					$Nivel= $_GET['lvl'];
-					$Nombre=$_GET['Nombre'];
-					$varTiempo=array_map('intval',explode(": ", $TiempoRes));
+					$intentos= $_GET['Errores'];
+					$tiempoRes=$_GET['Tiempo'];
+					$nivel= $_GET['lvl'];
+					$nombre=$_GET['Nombre'];
+					$varTiempo=array_map('intval',explode(": ", $tiempoRes));
 				?> 
 				</p>		
 				
@@ -34,25 +34,28 @@
 	</form>
 </div>
 <?php
-if($Nivel==1){
-	$Tiempo=30;
-	$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*5);}
-if($Nivel==2){
-	$Tiempo=45;
-$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*4);}
-if($Nivel==3){
-	$Tiempo=60;
-$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*3);}
-if($Nivel==4){
-	$Tiempo=85;
-$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*2);}
-if($Nivel==5){
-	$Tiempo=120;
-$formula=(($varTiempo[1]*100)/($Tiempo/2))-($Intentos*1);}
+if($nivel==1){
+	$tiempo=30;
+	$formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*5);}
+if($nivel==2){
+	$tiempo=45;
+$formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*4);}
+if($nivel==3){
+	$tiempo=60;
+$formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*3);}
+if($nivel==4){
+	$tiempo=85;
+$formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*2);}
+if($nivel==5){
+	$tiempo=120;
+$formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*1);}
 	
 	$file = fopen('HallOfFame.txt',"a");
 		//fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
-		fwrite($file, $Nombre."=>".$formula."\n");
+	if ($formula>100) {
+		$formula=100-$intentos;
+	}
+		fwrite($file, $nombre."=>".$formula."\n");
 	
 		fclose($file);
 	
