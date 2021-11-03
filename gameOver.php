@@ -6,30 +6,6 @@
 	<link rel="stylesheet" href="css/gameOver.css">
 </head>
 <body>
-
-	<style type="text/css">
-
-		body {
-			width: 100%;
-			display: grid;
-			grid-template-colums: 1fr;
-			grid-template-row: 1fr 1fr 1fr;
-		}
-
-		h1 {
-			background-image: url(imgs/fire.gif);
-    		background-size: cover;
-    		color: transparent;
-			-moz-background-clip: text;
-			-webkit-background-clip: text;
-			text-transform: uppercase;
-			text-align: center;
-			font-size: 120px;
-			line-height: .90;
-			margin: 10px 0;
-		}	 
-	</style>
-
 	<div class="title">
 		<h1>Has Perdido...</h1>
 	</div>

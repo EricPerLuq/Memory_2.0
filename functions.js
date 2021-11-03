@@ -90,7 +90,6 @@ function comprobarGanador() {
         }
         if (comprobarGiradas===maxViudasGiradas) {
         	viudasGiradas=maxViudasGiradas;
-        	console.log(maxViudasGiradas);
         }
     }
     if (ganador===true) {

@@ -6,22 +6,6 @@
 	<link rel="stylesheet" href="css/ranking.css">
 </head>
 <body>
-
-	<style type="text/css">
-			h1 {
-			background-image: url(imgs/ranking.gif);
-    		background-size: cover;
-    		color: transparent;
-			-moz-background-clip: text;
-			-webkit-background-clip: text;
-			text-transform: uppercase;
-			text-align: center;
-			font-size: 120px;
-			line-height: .75;
-			margin: 10px 0;
-		}
-	</style>
-	
 	<img class="Mascara" src="imgs/Mascara.png">
 
 	<div class="title">

@@ -9,8 +9,6 @@
 <body onload="cronometro()">
 	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
 	<h2><span class="casilla" id="cronometro">Tiempo:  </span></h2>
-	
-	
 	<table border="black" width=400 heigth=400>
 <?php
 $nombre=$_GET["nombreUsuario"];
