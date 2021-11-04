@@ -10,6 +10,9 @@
     <title>Memory 2.0</title>           
 </head>
 <body>
+    <div align="center">
+            <img src="/imgs/titulo.png">
+    </div>
     <script type="text/javascript">
         window.onload=function(){
         document.onkeydown=chars;
