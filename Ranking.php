@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 		<?php
-			echo 	"<h2><span class='casilla'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
+			echo 	"<h2><span class='nombreSessionIniciada'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
 		$records=[];
 		$ranking=[];
 		$archivo = fopen("HallOfFame.txt","r");

@@ -34,9 +34,26 @@ a{
     padding: 1px 6px;
     font-weight: bold;
 }
+.nombreSessionIniciada{
+    border: solid;
+    border-color: #935116;
+    color: #fdfefe;
+    background-image: url("../imgs/fondo-boton.jpeg");
+    text-align-last: center;
+    font-size: x-large;
+    padding: 1px 6px;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content: center;
+    float: right;
+    max-width: min-content;
+}
 
 @media (max-width: 800px) {
     .casilla {
+        font-size: large;
+    }
+    .nombreSessionIniciada {
         font-size: large;
     }
 }

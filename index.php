@@ -45,7 +45,7 @@
     }
     </script>
     <?php
-    echo    "<h2><span class='casilla' id='nombreUsuario'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
+    echo    "<h2><span class='nombreSessionIniciada' id='nombreUsuario'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
     ?>
     <div align="center">
         <img src="/imgs/titulo.png">
@@ -90,7 +90,7 @@
         </tr>
         <tr>
             <td class="filaBotonJugar">
-                    <input type="text" name="nombreUsuario" placeholder="Nombre" required/>
+                    <input type="text" name="nombreUsuario" placeholder="Nombre" value="<?php echo $_SESSION['nombreUsuario']?>" required/>
                     <input class="casilla" type="submit" value="JUGAR"/>
                 </form>
             </td>
@@ -99,11 +99,8 @@
     <?php
     if (isset($_GET["nombreUsuario"])) {
         $Usuario=$_GET["nombreUsuario"];    
-        $_SESSION['nombreUsuario']=$Usuario;
-        
+        $_SESSION['nombreUsuario']=$Usuario;    
     }
-    
-    
     ?>
 </body>
 </html>

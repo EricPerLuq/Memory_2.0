@@ -8,6 +8,10 @@
 </head>
 <body>
 	<audio autoplay="" src="sounds/ganador.mp3"></audio>
+	<?php
+	session_start();
+	echo 	"<h2><span class='nombreSessionIniciada' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
+	?>
 	<div class="title">
 		<h1>¡Enhorabuena <br/>Has Ganado!</h1>
 	</div>

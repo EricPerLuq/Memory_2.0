@@ -7,6 +7,10 @@
 </head>
 <body>
 	<audio autoplay="" src="sounds/metal_gear_game_over.mp3"></audio>
+	<?php
+	session_start();
+	echo 	"<h2><span class='nombreSessionIniciada' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
+	?>
 	<div class="title">
 		<h1>Has Perdido...</h1>
 	</div>

@@ -43,15 +43,16 @@ p {
     margin-top: 10px;
 }
 
+#nombreUsuario{
+    position: absolute;
+    top: 15px;
+    right:-5px;
+}
+
 @media (max-width: 800px) {
     .filaBotonJugar {
         font-size: x-small;
         margin-right: 15px;
     }
 
-}
-#nombreUsuario{
-    position: absolute;
-    top: 15px;
-    right:-5px;
 }

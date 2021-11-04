@@ -12,7 +12,7 @@
 <body onload="cronometro()">
 	<h2><span class="casilla" id="contadorDeIntentos">Intentos: 0 </span></h2> 
 	<h2><span class="casilla" id="cronometro">Tiempo:  </span></h2>
-	<table border="black" width=400 heigth=400>
+	<table>
 <?php
 $nombre=$_GET["nombreUsuario"];
 $nivel=$_GET["level"];
@@ -30,7 +30,7 @@ $cartasCasadas=[];
 $usosCartasCasadas=[];
 $idsCartasViudas=[];
 $_SESSION["nombreUsuario"]=$nombre;
-echo 	"<h2><span class='casilla' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
+echo 	"<h2><span class='nombreSessionIniciada' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 }
@@ -159,6 +159,6 @@ echo"<INPUT TYPE=HIDDEN id='nombre' value=".$nombre.">";
 ?>
 
 	</table>
-	<a class="casilla" href="index.php">Terminar partida</a>
+	<a class="casilla" href="index.php">Terminar</a>
 </body>
 </html>
