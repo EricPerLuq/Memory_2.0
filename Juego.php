@@ -31,6 +31,8 @@ $usosCartasCasadas=[];
 $idsCartasViudas=[];
 $_SESSION["nombreUsuario"]=$nombre;
 echo 	"<h2><span class='casilla' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
+echo 	"<h2><span class='casilla' id='sesionRank' >".$_SESSION["nombreRanking"].":".$_SESSION["puntosRanking"]."</span></h2>" ;
+
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 }
@@ -136,6 +138,7 @@ for ($i=0; $i < $rows; $i++) {
 				}
 			}
 			$cartaCorrecta=false;
+			
 			echo "<td><img id='$idCarta' onclick='girarCarta($idCarta, $cartaViuda)' src='imgs/reverso.png' height='auto' width='180' ></td> \n";
 		} else {
 			while ($cartaCorrecta==false) { 

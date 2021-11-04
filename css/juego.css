@@ -35,3 +35,8 @@ a{
         margin-right: 10px;
     } 
 }
+#sesionRank{
+    position: absolute;
+    left: 15px;
+    top: 25px;
+}

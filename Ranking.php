@@ -45,7 +45,11 @@
 		foreach ($ranking as $value1) {
 				    			echo "<td>".$value1[0]."</td>"."<td>".$value1[2]."</td>"."</tr>";	
 
-		}					fclose($archivo);
+		}
+			$_SESSION['nombreRanking']=$ranking[0][0];
+			$_SESSION['puntosRanking']=$ranking[0][2];
+
+						fclose($archivo);
 				   
 		?>
 	</table>

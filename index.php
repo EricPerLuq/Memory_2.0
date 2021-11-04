@@ -48,7 +48,6 @@
     echo    "<h2><span class='casilla' id='nombreUsuario'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
     ?>
     <div align="center">
-        <img src="/imgs/titulo.png">
     </div>
     <table align="center">
         <tr>
