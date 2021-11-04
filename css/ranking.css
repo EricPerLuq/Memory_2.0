@@ -83,3 +83,9 @@ table {
 		left: 550px;
 	}
 }
+span{
+
+	position:absolute;
+	top: -180px;
+	right: -10px;
+}

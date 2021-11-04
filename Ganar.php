@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/ganar.css">
 </head>
 <body>
+	<audio autoplay="" src="sounds/ganador.mp3"></audio>
 	<div class="title">
 		<h1>¡Enhorabuena <br/>Has Ganado!</h1>
 	</div>
@@ -54,6 +55,8 @@ $formula=(($varTiempo[1]*100)/($tiempo/2))-($intentos*1);}
 		//fwrite($file,$_POST["Nombre"]."[".$Intentos."]"."[".$Tiempo."]"."\n");
 	if ($formula>100) {
 		$formula=100-$intentos;
+	}elseif ($formula<=0) {
+		$formula=$Intentos;
 	}
 		fwrite($file, $nombre."=>".$formula."\n");
 	

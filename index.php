@@ -1,13 +1,16 @@
+<?php
+    session_start()
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/index.css">
-	<title>Memory 2.0</title>			
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Memory 2.0</title>           
 </head>
 <body>
-	<script type="text/javascript">
+    <script type="text/javascript">
         window.onload=function(){
         document.onkeydown=chars;
         var barrera= document.getElementById("barra");
@@ -22,8 +25,7 @@
                 caracteres(evento.keyCode);
             }}
     function caracteres(chars){
-                    var carta= document.getElementById("carta");
-
+            var carta= document.getElementById("carta");
             var cartaPos=carta.getBoundingClientRect();
             colision2=cartaPos.left;
             console.log(colision2);
@@ -37,14 +39,17 @@
             }
         
             if (colision==colision2) {
-                var carta=document.getElementById("carta");
-                carta.style.visibility="hidden";
-            }else{
-                carta.style.visibility="visible";
-
-                            }
+                carta.src="imgs/tirarcuerda.jpg"
+                //carta.style.visibility="hidden";              
+            }
     }
     </script>
+    <?php
+    echo    "<h2><span class='casilla' id='nombreUsuario'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
+    ?>
+    <div align="center">
+        <img src="/imgs/titulo.png">
+    </div>
     <table align="center">
         <tr>
             <td class="instrucciones" rowspan="4">
@@ -64,32 +69,41 @@
             </td>
         </tr>
         <tr>
-			<td>
-				<form action="Juego.php" method="GET">
-					<input type="checkbox" id="advanced " name="advanced" value="Advanced">Advanced
-			</td>
-		</tr>
-		<tr>
-			<td class="filaBotonJugar">	
-				<input type="radio" id="nivel1" name="level" value="1" checked>
-				<label for="nivel1">Nivel 1</label>
-				<input type="radio" id="nivel2" name="level" value="2">
-				<label for="nivel2">Nivel 2</label>
-				<input type="radio" id="nivel3" name="level" value="3">
-				<label for="nivel3">Nivel 3</label>
-				<input type="radio" id="nivel4" name="level" value="4">
-				<label for="nivel4">Nivel 4</label>
-				<input type="radio" id="nivel5" name="level" value="5">
-				<label for="nivel5">Nivel 5</label>			
-			</td>
-		</tr>
-		<tr>
-			<td class="filaBotonJugar">
-					<input type="text" name="nombreUsuario" placeholder="Nombre" required/>
+            <td>
+                <form action="Juego.php" method="GET">
+                    <input type="checkbox" id="advanced " name="advanced" value="Advanced">Advanced
+            </td>
+        </tr>
+        <tr>
+            <td class="filaBotonJugar"> 
+                <input type="radio" id="nivel1" name="level" value="1" checked>
+                <label for="nivel1">Nivel 1</label>
+                <input type="radio" id="nivel2" name="level" value="2">
+                <label for="nivel2">Nivel 2</label>
+                <input type="radio" id="nivel3" name="level" value="3">
+                <label for="nivel3">Nivel 3</label>
+                <input type="radio" id="nivel4" name="level" value="4">
+                <label for="nivel4">Nivel 4</label>
+                <input type="radio" id="nivel5" name="level" value="5">
+                <label for="nivel5">Nivel 5</label>         
+            </td>
+        </tr>
+        <tr>
+            <td class="filaBotonJugar">
+                    <input type="text" name="nombreUsuario" placeholder="Nombre" required/>
                     <input class="casilla" type="submit" value="JUGAR"/>
-				</form>
-			</td>
-		</tr>
-	</table>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <?php
+    if (isset($_GET["nombreUsuario"])) {
+        $Usuario=$_GET["nombreUsuario"];    
+        $_SESSION['nombreUsuario']=$Usuario;
+        
+    }
+    
+    
+    ?>
 </body>
 </html>

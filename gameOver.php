@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/gameOver.css">
 </head>
 <body>
+	<audio autoplay="" src="sounds/metal_gear_game_over.mp3"></audio>
 	<div class="title">
 		<h1>Has Perdido...</h1>
 	</div>

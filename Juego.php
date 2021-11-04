@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +29,8 @@ $idCarta=0;
 $cartasCasadas=[];
 $usosCartasCasadas=[];
 $idsCartasViudas=[];
-
+$_SESSION["nombreUsuario"]=$nombre;
+echo 	"<h2><span class='casilla' >".$_SESSION["nombreUsuario"]."</span></h2>" ;
 foreach (glob("imgs/Cartas/*.png") as $Imagen) { 
 	array_push($contadoresCartas, 0);
 }

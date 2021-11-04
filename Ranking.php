@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +8,7 @@
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/ranking.css">
 </head>
-<body>
+<body>	
 	<img class="Mascara" src="imgs/Mascara.png">
 
 	<div class="title">
@@ -19,6 +22,7 @@
 		</tr>
 		<tr>
 		<?php
+			echo 	"<h2><span class='casilla'>".$_SESSION["nombreUsuario"]."</span></h2>" ;
 		$records=[];
 		$ranking=[];
 		$archivo = fopen("HallOfFame.txt","r");

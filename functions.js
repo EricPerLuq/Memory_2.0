@@ -7,6 +7,7 @@ var srcTemp="";
 var contErrores=0;
 var viudasGiradas=0;
 var maxViudasGiradas=0;
+var sonido=0;
 
 //Gira la carta que se pulsa
 function girarCarta(idcarta, anverso) {
@@ -21,10 +22,13 @@ function girarCarta(idcarta, anverso) {
 	if (srcTemp==="reverso" && contGiradas<2) {
 		cartaActual.src = "./imgs/Cartas/carta" + anverso + ".png";
 		contGiradas+=1;
+		sonido+=1;
 		if (contGiradas==1) {
+			reproducirSonido(sonido);
 			primeraCarta=cartaActual;
 		} else {
 			compararCartas(primeraCarta, cartaActual);
+			sonido=0;
 		}
 	}
 }
@@ -56,6 +60,7 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 	if (primeraCartaComparar.src!=segundaCartaComparar.src) {
 		setTimeout(esperando, 2000);
 	} else {
+		sonido=0;
 		contGiradas=0;
 		comprobarGanador();
 	}
@@ -63,6 +68,8 @@ function compararCartas(primeraCartaComparar, segundaCartaComparar){
 
 //Esperar 2 segundos para ocultar las cartas
 function esperando(){
+	sonido+=2;
+	reproducirSonido(sonido);
 	primeraCarta.src="imgs/reverso.png";
 	segundaCarta.src="imgs/reverso.png";
 	contGiradas=0;
@@ -84,6 +91,8 @@ function comprobarGanador() {
 		srcTemp2=srcTemp2[srcTemp2.length-1];
         if (srcTemp2=="reverso.png") {
             ganador=false;
+            sonido+=3
+			reproducirSonido(sonido);
         }
         if (srcTemp2=="cartaMarcada.png") {
         	comprobarGiradas+=1;
@@ -166,3 +175,20 @@ function arrancaCrono(tiempo){
 		spanNumero.innerHTML = "Tiempo: "+tiempo;
 		tiempo-=1;},1000);
 }
+
+function reproducirSonido(sonido){
+	if (sonido==1) {
+		const sonido1=new Audio("sounds/mario-coin.mp3");
+		sonido1.play();
+	}
+	else if(sonido==2){
+		const sonido2=new Audio("sounds/pacman-dies.mp3");
+		sonido2.play();
+	}
+
+	else if(sonido==3){
+		const sonido3=new Audio("sounds/correct-ding.mp3");
+		sonido3.play();
+	}
+
+	}
